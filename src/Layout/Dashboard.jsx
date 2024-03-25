@@ -30,7 +30,7 @@ const Dashboard = () => {
       key: 'products',
       icon: <UserOutlined />,
       label: 'Products',
-      to: '/products',
+      to: '/allProducts',
     },
     {
       key: 'employee',
