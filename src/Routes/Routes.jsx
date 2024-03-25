@@ -18,7 +18,7 @@ import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
         // admin routes
 
         {
-          path: 'allUsers', 
+          path: 'allUsers',  
           element: <AllUsers></AllUsers>
         },
         {
