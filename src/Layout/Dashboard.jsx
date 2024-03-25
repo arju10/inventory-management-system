@@ -18,13 +18,13 @@ const Dashboard = () => {
       key: 'dashboard',
       icon: <DesktopOutlined />,
       label: 'Dashboard',
-      to: '/dashboard',
+      to: '/',
     },
     {
       key: 'suppliers',
       icon: <UserOutlined />,
       label: 'Suppliers',
-      to: '/suppliers',
+      to: '/allSuppliers',
     },
     {
       key: 'products',

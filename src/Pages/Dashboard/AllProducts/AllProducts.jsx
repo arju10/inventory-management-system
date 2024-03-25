@@ -7,11 +7,11 @@ import {
   EditOutlined,
   UserAddOutlined,
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const EditableContext = React.createContext(null);
 
-const EditableRow = ({  ...props }) => {
+const EditableRow = ({ ...props }) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
@@ -103,13 +103,13 @@ const AllProducts = () => {
           name: user.name,
           age: user.username,
           email: user.email,
-          'Budget Code': `CODE-${index}`, 
-          'Product Name': user.address.street, 
-          'Unit': `Unit-${index}`, 
+          'Budget Code': `CODE-${index}`,
+          'Product Name': user.address.street,
+          'Unit': `Unit-${index}`,
           'Stock': `Stock ${index}`,
           'Alert Qty': ` ${index + 1}`,
           'Order': ` ${index + 1}`,
-                    
+
         }));
         setDataSource(newData);
         setCount(newData.length);
@@ -117,17 +117,17 @@ const AllProducts = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
- 
-   const handleSave = row => {
-     const newData = [...dataSource];
-     const index = newData.findIndex(item => row.key === item.key);
-     const item = newData[index];
-     newData.splice(index, 1, {
-       ...item,
-       ...row,
-     });
-     setDataSource(newData);
-   };
+
+  const handleSave = row => {
+    const newData = [...dataSource];
+    const index = newData.findIndex(item => row.key === item.key);
+    const item = newData[index];
+    newData.splice(index, 1, {
+      ...item,
+      ...row,
+    });
+    setDataSource(newData);
+  };
 
   const components = {
     body: {
@@ -162,7 +162,7 @@ const AllProducts = () => {
     {
       title: 'Order',
       dataIndex: 'Order',
-    
+
     },
   ].map(col => ({
     ...col,
@@ -177,15 +177,16 @@ const AllProducts = () => {
 
   const navigate = useNavigate();
 
-  function handleAddNewProductClick(){
+  function handleAddNewProductClick() {
     navigate('/addNewProduct');
   }
-  function handleEditProductClick(){
+  function handleEditProductClick() {
     navigate('/editProduct');
   }
 
   return (
     <div>
+
       <Button
         onClick={handleAddNewProductClick}
         type="primary"
@@ -197,6 +198,8 @@ const AllProducts = () => {
         Add New Product
       </Button>&nbsp;
 
+
+
       <Button onClick={handleEditProductClick} style={{
         marginBottom: 16,
       }} variant="contained" color="success"><EditOutlined />&nbsp;
@@ -205,9 +208,11 @@ const AllProducts = () => {
 
       <Button style={{
         marginBottom: 16,
-      }} variant="contained" color="warning"><DeleteOutlined/>&nbsp;
+      }} variant="contained" color="warning"><DeleteOutlined />&nbsp;
         Delete
       </Button>
+
+
 
       <Table
         components={components}

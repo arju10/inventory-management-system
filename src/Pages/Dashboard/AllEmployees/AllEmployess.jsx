@@ -196,9 +196,26 @@ const AllEmployess = () => {
         <Button style={{
           marginBottom: 16,
         }} variant="contained" color="success"><EditOutlined />&nbsp;
-          Manage
+          Edit
         </Button>
       </Link>
+
+      {/* <Link to="edit-Employee">
+
+        <Button onClick={handleEditProductClick} style={{
+          marginBottom: 16,
+        }} variant="contained" color="success"><EditOutlined />&nbsp;
+          Edit
+        </Button>&nbsp;
+      </Link>
+      <Link to="delete-employee">
+
+        <Button style={{
+          marginBottom: 16,
+        }} variant="contained" color="danger"><DeleteOutlined />&nbsp;
+          Delete
+        </Button>
+      </Link> */}
 
 
       <Table
