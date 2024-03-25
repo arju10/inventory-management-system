@@ -6,6 +6,7 @@ import {
   EditOutlined,
   UserAddOutlined
 } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const EditableContext = React.createContext(null);
 
@@ -178,22 +179,27 @@ const AllEmployess = () => {
 
   return (
     <div>
-      <Button
-        onClick={handleAdd}
-        type="primary"
-        style={{
-          marginBottom: 16,
-        }}
-        variant="contained" color="primary"
-      ><UserAddOutlined />&nbsp;
-        Add New Employee
-      </Button>&nbsp;
+      <Link to="/add-employee">
+        <Button
+          onClick={handleAdd}
+          type="primary"
+          style={{
+            marginBottom: 16,
+          }}
+          variant="contained" color="primary"
+        ><UserAddOutlined />&nbsp;
+          Add New Employee
+        </Button>&nbsp;
+      </Link>
+      <Link to='/edit-employee'>
 
-      <Button style={{
-        marginBottom: 16,
-      }} variant="contained" color="success"><EditOutlined />&nbsp;
-        Manage
-      </Button>
+        <Button style={{
+          marginBottom: 16,
+        }} variant="contained" color="success"><EditOutlined />&nbsp;
+          Manage
+        </Button>
+      </Link>
+
 
       <Table
         components={components}

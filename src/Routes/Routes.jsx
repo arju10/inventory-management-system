@@ -5,7 +5,8 @@ import {
 import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AllEmployess from "../Pages/Dashboard/AllEmployees/AllEmployess";
-
+import AddNewEmployee from "../Pages/Dashboard/AllEmployees/AddNewEmployee";
+import EditSingleEmploy from "../Pages/Dashboard/AllEmployees/EditSingleEmploy";
 
   export const router = createBrowserRouter([
     {
@@ -22,7 +23,14 @@ import AllEmployess from "../Pages/Dashboard/AllEmployees/AllEmployess";
           path: 'allEmployees', 
           element: <AllEmployess/>
         },
-
+        {
+          path: 'add-employee', 
+          element: <AddNewEmployee/>
+        },
+        {
+          path: 'edit-employee', 
+          element: <EditSingleEmploy/>
+        },
       ]
     }
   ]);
