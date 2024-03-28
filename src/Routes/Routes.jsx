@@ -15,6 +15,8 @@ import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
 
 import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
 
+import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
+
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +24,10 @@ export const router = createBrowserRouter([
     element: <Dashboard />,
     children: [
       // admin routes
+      {
+        path: '/',
+        element: <ReportDashboard/>
+      },
       {
         path: 'allUsers',
         element: <AllUsers></AllUsers>

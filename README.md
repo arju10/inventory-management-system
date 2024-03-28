@@ -2,6 +2,6 @@
 
 TO Start this project
 
-- Clone the project / Download the Project as Zip => Upzip
+- Clone the project / Download the Project as Zip => Unzip
 - npm install
 - npm run dev
