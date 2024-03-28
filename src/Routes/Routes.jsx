@@ -16,6 +16,9 @@ import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
 import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
 
 
+
+
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -53,10 +56,11 @@ export const router = createBrowserRouter([
         element: <EditProduct />
       },
       // Suppliers Routes
-      {
-        path: 'allSuppliers',
-        element: <Suppliers />
-      },
+       {
+         path: 'allSuppliers',
+         element: <Suppliers />
+       },
+     
     ]
   }
 ]);
