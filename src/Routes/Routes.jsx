@@ -18,9 +18,6 @@ import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
 import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 
 
-
-
-
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -62,11 +59,10 @@ export const router = createBrowserRouter([
         element: <EditProduct />
       },
       // Suppliers Routes
-       {
-         path: 'allSuppliers',
-         element: <Suppliers />
-       },
-     
+      {
+        path: 'allSuppliers',
+        element: <Suppliers />
+      },
     ]
   }
 ]);
