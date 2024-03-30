@@ -87,7 +87,7 @@ const EditableCell = ({
     return <td {...restProps}>{childNode}</td>;
 };
 
-const AllEmployess = () => {
+const AllSuppliers = () => {
     const [dataSource, setDataSource] = useState([]);
     const [count, setCount] = useState(0);
 
@@ -229,4 +229,4 @@ const AllEmployess = () => {
     );
 };
 
-export default AllEmployess;
+export default AllSuppliers;
