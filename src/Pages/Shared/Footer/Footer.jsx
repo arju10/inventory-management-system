@@ -3,7 +3,9 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-      <h1>Footer</h1>
+      <Footer style={{ textAlign: 'center' }}>
+        Management Inventory System ©{new Date().getFullYear()} Created by GOINNOVIOR LIMITED
+      </Footer>
     </div>
   )
 }

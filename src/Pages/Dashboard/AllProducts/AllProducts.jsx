@@ -1,16 +1,17 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Form, Input, Popconfirm, Table } from 'antd';
+import { Form, Input, Table } from 'antd';
 import Button from '@mui/material/Button';
+
 import {
   DeleteOutlined,
   EditOutlined,
-  UserAddOutlined
+  UserAddOutlined,
 } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const EditableContext = React.createContext(null);
 
-const EditableRow = ({ index, ...props }) => {
+const EditableRow = ({ ...props }) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
@@ -87,9 +88,11 @@ const EditableCell = ({
   return <td {...restProps}>{childNode}</td>;
 };
 
-const AllEmployess = () => {
+const AllProducts = () => {
   const [dataSource, setDataSource] = useState([]);
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+
+
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -100,6 +103,13 @@ const AllEmployess = () => {
           name: user.name,
           age: user.username,
           email: user.email,
+          'Budget Code': `CODE-${index}`,
+          'Product Name': user.address.street,
+          'Unit': `Unit-${index}`,
+          'Stock': `Stock ${index}`,
+          'Alert Qty': ` ${index + 1}`,
+          'Order': ` ${index + 1}`,
+
         }));
         setDataSource(newData);
         setCount(newData.length);
@@ -107,21 +117,6 @@ const AllEmployess = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  const handleDelete = key => {
-    const newData = dataSource.filter(item => item.key !== key);
-    setDataSource(newData);
-  };
-
-  const handleAdd = () => {
-    const newData = {
-      key: count.toString(),
-      name: `Edward King ${count}`,
-      age: '32',
-      email: `London, Park Lane no. ${count}`,
-    };
-    setDataSource([...dataSource, newData]);
-    setCount(count + 1);
-  };
 
   const handleSave = row => {
     const newData = [...dataSource];
@@ -143,28 +138,31 @@ const AllEmployess = () => {
 
   const columns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      width: '30%',
+      title: 'Budget Code',
+      dataIndex: 'Budget Code',
       editable: true,
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
+      title: 'Product Name',
+      dataIndex: 'Product Name',
+      width: '30%',
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
+      title: 'Unit',
+      dataIndex: 'Unit',
     },
     {
-      title: 'Operation',
-      dataIndex: 'operation',
-      render: (_, record) =>
-        dataSource.length >= 1 ? (
-          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
-            <a><DeleteOutlined /></a>
-          </Popconfirm>
-        ) : null,
+      title: 'Stock',
+      dataIndex: 'Stock',
+    },
+    {
+      title: 'Alert Qty',
+      dataIndex: 'Alert Qty',
+    },
+    {
+      title: 'Order',
+      dataIndex: 'Order',
+
     },
   ].map(col => ({
     ...col,
@@ -177,45 +175,43 @@ const AllEmployess = () => {
     }),
   }));
 
+  const navigate = useNavigate();
+
+  function handleAddNewProductClick() {
+    navigate('/addNewProduct');
+  }
+  function handleEditProductClick() {
+    navigate('/editProduct');
+  }
+
   return (
     <div>
-      <Link to="/add-employee">
-        <Button
-          onClick={handleAdd}
-          type="primary"
-          style={{
-            marginBottom: 16,
-          }}
-          variant="contained" color="primary"
-        ><UserAddOutlined />&nbsp;
-          Add New Employee
-        </Button>&nbsp;
-      </Link>
-      <Link to='/edit-employee'>
 
-        <Button style={{
+      <Button
+        onClick={handleAddNewProductClick}
+        type="primary"
+        style={{
           marginBottom: 16,
-        }} variant="contained" color="success"><EditOutlined />&nbsp;
-          Edit
-        </Button>
-      </Link>
+        }}
+        variant="contained" color="primary"
+      ><UserAddOutlined />&nbsp;
+        Add New Product
+      </Button>&nbsp;
 
-      {/* <Link to="edit-Employee">
 
-        <Button onClick={handleEditProductClick} style={{
-          marginBottom: 16,
-        }} variant="contained" color="success"><EditOutlined />&nbsp;
-          Edit
-        </Button>&nbsp;
-      </Link>
-      <Link to="delete-employee">
 
-        <Button style={{
-          marginBottom: 16,
-        }} variant="contained" color="danger"><DeleteOutlined />&nbsp;
-          Delete
-        </Button>
-      </Link> */}
+      <Button onClick={handleEditProductClick} style={{
+        marginBottom: 16,
+      }} variant="contained" color="success"><EditOutlined />&nbsp;
+        Edit
+      </Button>&nbsp;
+
+      <Button style={{
+        marginBottom: 16,
+      }} variant="contained" color="warning"><DeleteOutlined />&nbsp;
+        Delete
+      </Button>
+
 
 
       <Table
@@ -229,4 +225,4 @@ const AllEmployess = () => {
   );
 };
 
-export default AllEmployess;
+export default AllProducts;

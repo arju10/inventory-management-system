@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Switch, FormControlLabel, TextField, Button, Grid } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
-const AddNewEmployee = () => {
+const AddNewSupplier = () => {
   const [isCreating, setIsCreating] = useState(true);
   return (
     <>
       <div style={{ margin: '1rem' }}>
-        <h1>Add New Employee</h1>
+        <h1>Add New Supplier</h1>
         <div style={{ textAlign: 'right' }}>
           <FormControlLabel
             label="Keep this switch on to keep creating product"
@@ -66,4 +66,4 @@ const AddNewEmployee = () => {
   )
 }
 
-export default AddNewEmployee
+export default AddNewSupplier
