@@ -15,6 +15,11 @@ import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
 
 import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
 
+
+import AddNewSupplier from "../Pages/Dashboard/AllSuppliers/AddNewSupplier";
+import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
+
+
 import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 
 
@@ -26,7 +31,8 @@ export const router = createBrowserRouter([
       // admin routes
       {
         path: '/',
-        element: <ReportDashboard/>
+        element: <ReportDashboard />
+
       },
       {
         path: 'allUsers',
@@ -63,6 +69,16 @@ export const router = createBrowserRouter([
         path: 'allSuppliers',
         element: <Suppliers />
       },
+
+      {
+        path: 'addNewSupplier',
+        element: <AddNewSupplier />
+      },
+      {
+        path: 'editSupplier',
+        element: <EditSupplier />
+      },
+
     ]
   }
 ]);

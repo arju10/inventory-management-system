@@ -147,7 +147,6 @@ const AllProducts = () => {
       dataIndex: 'Product Name',
       width: '30%',
     },
-    
     {
       title: 'Unit',
       dataIndex: 'Unit',
