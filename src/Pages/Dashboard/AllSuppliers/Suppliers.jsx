@@ -209,23 +209,6 @@ const AllSuppliers = () => {
 
     return (
         <div>
-
-            <Button
-                onClick={handleAdd}
-                type="primary"
-                style={{
-                    marginBottom: 16,
-                }}
-                variant="contained" color="success"
-            ><UserAddOutlined />&nbsp;
-                Add New Supplier
-            </Button>&nbsp;
-
-            <Button style={{
-                marginBottom: 16,
-            }} variant="contained" color="primary"><EditOutlined />&nbsp;
-                Edit Supplier
-            </Button>&nbsp;
             <Link to="/addNewSupplier">
                 <Button
                     onClick={handleAdd}
