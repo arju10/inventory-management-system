@@ -21,6 +21,7 @@ import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
 
 
 import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
+import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
 
 
 export const router = createBrowserRouter([
@@ -37,6 +38,11 @@ export const router = createBrowserRouter([
       {
         path: 'allUsers',
         element: <AllUsers></AllUsers>
+      },
+      // requisition Approval
+      {
+        path: 'requisitionApp',
+        element: <RequisitionApproval/>
       },
       // Employee Routes
       {

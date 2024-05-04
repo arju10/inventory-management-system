@@ -124,9 +124,6 @@ const AllSuppliers = () => {
             key: count.toString(),
 
             name: `Shipon Sarkar ${count}`,
-
-            name: `Edward King ${count}`,
-
             age: '32',
             email: `London, Park Lane no. ${count}`,
         };
