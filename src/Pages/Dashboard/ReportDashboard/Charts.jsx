@@ -1,6 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import './charts.css'
+import './dashboard.css'
 import { FaEllipsisV } from "react-icons/fa"
+import PieComponent from './PieComponent';
 
 const data = [
   {
@@ -57,7 +58,7 @@ const Charts = () => {
           </div>
           <div>
           <LineChart
-          width={600}
+          width={500}
           height={300}
           data={data}
           margin={{
@@ -82,6 +83,10 @@ const Charts = () => {
             <h2 className='text7'>Revenue Resources</h2>
             <FaEllipsisV color='gray' className='pie-item' />
           </div>
+          <div>
+            <PieComponent/>
+          </div>
+          
           <div>
             
           </div>

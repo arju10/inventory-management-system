@@ -34,6 +34,14 @@
     font-weight: bold;
   }
 
+  .notification-count {
+    color: red;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 50%;
+    margin-top: 20px;
+  }
+
   .textrevenue{
         font-size: 20px;
         line-height: 24px;
@@ -43,7 +51,7 @@
   }
 
   .box {
-    height: 100px;
+    height: 160px;
     border-radius: 8px;
     background-color: white;
     border: 4px solid #4373DF;
@@ -60,6 +68,194 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transform: scale(1.03);
   }
+
+  /*.pagetitle {
+    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 0;
+    font-weight: 600;
+    color: #012970;
+}*/
+
+/*.page{
+    point: 25px;
+    
+    background: #F8F9FC;
+}*/
+/*.pager{
+    display : flex;
+    align-items:center ;
+    justify-content: space-between;
+}*/
+.custom-box {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: #F8F9FC;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-text {
+  color: #5a5c69;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/*.pagetitle {
+  text:#5a5c69;
+  text:28px; 
+  font:normal; 
+  cursor:pointer'
+}
+.report {
+  background-color:#1E90FF; 
+  height: 32px;
+  border-radius: 2px solid #2E59D9;  
+  text:white; 
+  flex:center; 
+  justify:center; 
+  cursor:pointer;
+}*/
+.custom-element1 {
+  background-color: #2E59D9;
+  height: 32px;
+  border-radius: 3px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  cursor: pointer;
+}
+
+.charts {
+  display: flex;
+  margin-top: 22px;
+  width: 100%;
+  gap: 30px;
+}
+
+.charts-item {
+  flex-basis: 70%;
+  border: 1px solid #000; /* Example border */
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Apply shadow */
+  cursor: pointer;
+  border-radius: 4px;
+  width: 1200px;
+  height: 100%;
+}
+
+.flex-item {
+  flex-basis: 30%;
+  border: 1px solid #000; /* Example border */
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Apply shadow */
+  cursor: pointer;
+  border-radius: 4px;
+  height: 150%;
+}
+
+.pie-item {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.custom-header {
+  background-color: #F8F9FC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #EDEDED;
+  margin-bottom: 20px;
+}
+
+.pie-box{
+  background-color: #F8F9FC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #EDEDED;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #EDEDED;
+}
+
+.text6{
+  font-size: 11px;
+}
+.text7{
+  font-size: 11px;
+}
+
+.text8{
+  font-size: 9px;
+}
+
+.container1 {
+  padding: 20px; /* Add some padding */
+  background-color: #F8F9FC; /* Background color for the container */
+  border-radius: 10px; /* Add some border radius */
+  position: relative; /* Set position to relative */
+}
+
+.requisition {
+  position: absolute; /* Set position to absolute */
+  top: 0; /* Align to the top of the container */
+  left: 0; /* Align to the right of the container */
+  border: 1px ; /* Add border */
+  background-color: #f0f0f0; /* Gray background color */
+  padding: 5px 10px; /* Add padding */
+  border-radius: 1px; /* Add border radius */
+}
+
+.status {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Gap between status items */
+  justify-content: space-between;
+}
+
+.status-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pending { background-color: #ff9999; }
+.authorized { background-color: #99ff99; }
+.approved { background-color: #9999ff; }
+.issued { background-color: #ffff99; }
+
+
+
+
+
+
+
+
+
   
   
   

@@ -17,6 +17,8 @@ import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
 
 import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 
+import UserManage from "../Pages/Dashboard/UserManagement/UserManage"
+
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +64,11 @@ export const router = createBrowserRouter([
       {
         path: 'allSuppliers',
         element: <Suppliers />
+      },
+      //User Management
+      {
+        path: 'userManagement',
+        element: <UserManage />
       },
     ]
   }
