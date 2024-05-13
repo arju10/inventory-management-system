@@ -3,6 +3,7 @@ import PageTitle from './PageTitle'
 import Dashboard from './Dashboard'
 import Charts from './Charts'
 import Upperpage from './Upperpage'
+import Notices from './Notices'
 
 
 const ReportDashboard = () => {
@@ -12,6 +13,7 @@ const ReportDashboard = () => {
       <Upperpage/>
       <Dashboard/>
       <Charts/>
+      <Notices/>
 
 
     </main>

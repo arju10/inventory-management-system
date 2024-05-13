@@ -83,7 +83,7 @@ const Charts = () => {
             <h2 className='text7'>Revenue Resources</h2>
             <FaEllipsisV color='gray' className='pie-item' />
           </div>
-          <div>
+          <div className='pieComponent'>
             <PieComponent/>
           </div>
           

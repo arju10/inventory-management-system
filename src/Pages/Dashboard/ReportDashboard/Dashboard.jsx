@@ -9,36 +9,44 @@ const Dashboard = () => {
         <div className='box custom-element'>
             <div>
                 <h2 className='notification-count'>8</h2>
-                <FaRegCalendarMinus fontSize={20} color="grey" style={{position:"absolute",top: '35px', right: '60px'}}/>
+                <FaRegCalendarMinus fontSize={20} color="grey" style={{}}/>
                 <h2 className='text'>Request</h2>
                 <h2 className='text8'>Pending to Authorize Request</h2>
-                <button></button>
+                <button>View Request</button>
             </div>
             
         </div>
 
         <div className='box custom-element'>
             <div>
-                <h2 className='text1'>EARNING (ANNUAL)</h2>
-                <h1 className='textrevenue'>$215,000</h1>
+                <h2 className='notification-count'>8</h2>
+                <AiFillDollarCircle fontSize={28} color="grey" />   
+                <h2 className='text'>Request</h2>
+                <h2 className='text8'>Pending to Authorize Request</h2>
+                <button>View Request</button>
             </div>
-            <AiFillDollarCircle fontSize={28} color="grey" />
         </div>
 
         <div className='box custom-element'>
             <div>
-                <h2 className='text2'>TASKS</h2>
-                <h1 className='textrevenue'>50%</h1>
+                <h2 className='notification-count'>8</h2>
+                <FaClipboardList fontSize={28} color="grey" />
+                <h2 className='text'>Request</h2>
+                <h2 className='text8'>Pending to Authorize Request</h2>
+                <button>View Request</button>
             </div>
-            <FaClipboardList fontSize={28} color="grey" />
+            
         </div>
 
         <div className='box custom-element'>
             <div>
-                <h2 className='text3'>PENDING REQUESTS</h2>
-                <h1 className='textrevenue'>18</h1>
+                <h2 className='notification-count'>8</h2>
+                <FaComments fontSize={28} color="grey" />
+                <h2 className='text'>Request</h2>
+                <h2 className='text8'>Pending to Authorize Request</h2>
+                <button>View Request</button>
             </div>
-            <FaComments fontSize={28} color="grey" />
+            
         </div>
 
     </div>
