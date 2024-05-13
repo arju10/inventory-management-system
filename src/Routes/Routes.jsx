@@ -22,6 +22,9 @@ import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
 
 import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
+import Requisition from './../Pages/Dashboard/Requisition/Requisition';
+import RequisitionRequest from "../Pages/Dashboard/Requisition/RequisitionRequest";
+
 
 
 export const router = createBrowserRouter([
@@ -83,6 +86,14 @@ export const router = createBrowserRouter([
       {
         path: 'editSupplier',
         element: <EditSupplier />
+      },
+      {
+        path: 'requisition',
+        element: <Requisition/>
+      },
+      {
+        path: 'requisitionRequest',
+        element: <RequisitionRequest/>
       },
 
     ]
