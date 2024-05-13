@@ -7,6 +7,9 @@ import {
     UserAddOutlined
 } from '@ant-design/icons';
 
+import { Link } from 'react-router-dom';
+
+
 const EditableContext = React.createContext(null);
 
 const EditableRow = ({ index, ...props }) => {
@@ -103,6 +106,7 @@ const AllSuppliers = () => {
                     'Contact No.': '12345670', // Example contact number
                     'Code': `CODE-${index}`, // Example code
                     'Address 1': `Address ${index}`, // Example address
+
                 }));
                 setDataSource(newData);
                 setCount(newData.length);
@@ -118,6 +122,7 @@ const AllSuppliers = () => {
     const handleAdd = () => {
         const newData = {
             key: count.toString(),
+
             name: `Shipon Sarkar ${count}`,
             age: '32',
             email: `London, Park Lane no. ${count}`,
@@ -149,6 +154,7 @@ const AllSuppliers = () => {
             title: 'Name',
             dataIndex: 'name',
             width: '30%',
+
             editable: false,
         },
         {
@@ -168,6 +174,25 @@ const AllSuppliers = () => {
             dataIndex: 'Address 1',
         },
 
+
+        {
+            title: 'Age',
+            dataIndex: 'age',
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+        },
+        {
+            title: 'Operation',
+            dataIndex: 'operation',
+            render: (_, record) =>
+                dataSource.length >= 1 ? (
+                    <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+                        <a><DeleteOutlined /></a>
+                    </Popconfirm>
+                ) : null,
+        },
     ].map(col => ({
         ...col,
         onCell: record => ({
@@ -181,24 +206,26 @@ const AllSuppliers = () => {
 
     return (
         <div>
-            <Button
-                onClick={handleAdd}
-                type="primary"
-                style={{
+            <Link to="/addNewSupplier">
+                <Button
+                    onClick={handleAdd}
+                    type="primary"
+                    style={{
+                        marginBottom: 16,
+                    }}
+                    variant="contained" color="primary"
+                ><UserAddOutlined />&nbsp;
+                    Add New Supplier
+                </Button>&nbsp;
+            </Link>
+            <Link to='/editSupplier'>
+
+                <Button style={{
                     marginBottom: 16,
-                }}
-                variant="contained" color="success"
-            ><UserAddOutlined />&nbsp;
-                Add New Supplier
-            </Button>&nbsp;
-
-            <Button style={{
-                marginBottom: 16,
-            }} variant="contained" color="primary"><EditOutlined />&nbsp;
-                Edit Supplier
-            </Button>&nbsp;
-
-
+                }} variant="contained" color="success"><EditOutlined />&nbsp;
+                    Edit Supplier
+                </Button>
+            </Link>
             <Table
                 components={components}
                 rowClassName={() => 'editable-row'}
@@ -210,4 +237,7 @@ const AllSuppliers = () => {
     );
 };
 
-export default AllSuppliers
+
+export default AllSuppliers;
+
+

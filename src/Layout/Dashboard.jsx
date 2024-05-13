@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
+import { useState } from "react";
+import { Layout, Menu } from "antd";
 import {
   DesktopOutlined,
   UserOutlined,
@@ -11,11 +11,11 @@ import {
   SettingOutlined,
   TableOutlined,
   LoginOutlined,
-  LogoutOutlined
-} from '@ant-design/icons';
-import { Link } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
-import TopNavbar from '../component/TopNavbar/TopNavbar';
+  LogoutOutlined,
+} from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import TopNavbar from "../component/TopNavbar/TopNavbar";
 
 const { Sider, Content, Footer } = Layout;
 
@@ -24,123 +24,123 @@ const Dashboard = () => {
 
   const items = [
     {
-      key: 'dashboard',
+      key: "dashboard",
       icon: <DesktopOutlined />,
-      label: 'Dashboard',
-      to: '/',
+      label: "Dashboard",
+      to: "/",
     },
     {
-      key: 'requisionAuth',
+      key: "requisionAuth",
       icon: <ShoppingCartOutlined />,
-      label: 'Requisition(Authorize)',
-      to: '/requisionAuth',
+      label: "Requisition(Authorize)",
+      to: "/requisionAuth",
     },
     {
-      key: 'requisionApp',
+      key: "requisionApp",
       icon: <ShoppingCartOutlined />,
-      label: 'Requisition(Approval)',
-      to: '/requisionApp',
+      label: "Requisition(Approval)",
+      to: "/requisitionApp",
     },
     {
-      key: 'requisitionIssue',
+      key: "requisitionIssue",
       icon: <ShoppingCartOutlined />,
-      label: 'Requisition(issue)',
-      to: '/requisionIssue',
+      label: "Requisition(issue)",
+      to: "/requisionIssue",
     },
     {
-      key: 'issuedRequisition',
+      key: "issuedRequisition",
       icon: <ShoppingCartOutlined />,
-      label: 'Issued Requisition',
-      to: '/issuedRequisition',
+      label: "Issued Requisition",
+      to: "/issuedRequisition",
     },
     {
-      key: 'addInventory',
+      key: "addInventory",
       icon: <ShoppingCartOutlined />,
-      label: 'Add Inventory',
-      to: '/addInventory',
+      label: "Add Inventory",
+      to: "/addInventory",
     },
     {
-      key: 'currentStock',
+      key: "currentStock",
       icon: <ShoppingCartOutlined />,
-      label: 'Current Stock',
-      to: '/currentStock',
+      label: "Current Stock",
+      to: "/currentStock",
     },
     {
-      key: 'stockAdjust',
+      key: "stockAdjust",
       icon: <ShoppingCartOutlined />,
-      label: 'Stock Adjust',
-      to: '/stockAdjust',
+      label: "Stock Adjust",
+      to: "/stockAdjust",
     },
     {
-      key: 'suppliers',
+      key: "suppliers",
       icon: <BlockOutlined />,
-      label: 'Suppliers',
-      to: '/allSuppliers',
+      label: "Suppliers",
+      to: "/allSuppliers",
     },
     {
-      key: 'products',
+      key: "products",
       icon: <VerticalAlignBottomOutlined />,
-      label: 'Products',
-      to: '/allProducts',
+      label: "Products",
+      to: "/allProducts",
     },
     {
-      key: 'reports',
+      key: "reports",
       icon: <FileOutlined />,
-      label: 'Reports',
-      to: '/reports',
+      label: "Reports",
+      to: "/reports",
     },
     {
-      key: 'employee',
+      key: "employee",
       icon: <TeamOutlined />,
-      label: 'Employee',
-      to: '/allEmployees',
+      label: "Employee",
+      to: "/allEmployees",
     },
     {
-      key: 'userManagement',
+      key: "userManagement",
       icon: <UserOutlined />,
-      label: 'User Management',
-      to: '/userManagement',
+      label: "User Management",
+      to: "/userManagement",
     },
     {
-      key: 'settings',
+      key: "settings",
       icon: <SettingOutlined />,
-      label: 'Settings',
-      to: '/settings',
+      label: "Settings",
+      to: "/settings",
     },
     {
-      key: 'profile',
+      key: "profile",
       icon: <UserOutlined />,
-      label: 'Profile',
-      to: '/profile',
+      label: "Profile",
+      to: "/profile",
     },
     {
-      key: 'customer',
+      key: "customer",
       icon: <TableOutlined />,
-      label: 'Customer',
-      to: '/customer',
+      label: "Customer",
+      to: "/customer",
     },
     {
-      key: 'login',
+      key: "login",
       icon: <LoginOutlined />,
-      label: 'Login',
-      to: '/login',
+      label: "Login",
+      to: "/login",
     },
     {
-      key: 'register',
+      key: "register",
       icon: <LogoutOutlined />,
-      label: 'Register',
-      to: '/register',
+      label: "Register",
+      to: "/register",
     },
   ];
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: "100vh" }}>
       {/* <TopNavbar /> */}
       <Layout>
-        <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}  >
+        <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
           <div className="demo-logo-vertical" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            {items.map(item => (
+          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+            {items.map((item) => (
               <Menu.Item key={item.key} icon={item.icon}>
                 <Link to={item.to}>{item.label}</Link>
               </Menu.Item>
@@ -149,18 +149,19 @@ const Dashboard = () => {
         </Sider>
         <Layout>
           <TopNavbar />
-          <Content style={{ margin: '0 16px' }}>
+          <Content style={{ margin: "0 16px" }}>
             <div style={{ padding: 24, minHeight: 360 }}>
               <Outlet />
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            Management Inventory System ©{new Date().getFullYear()} Created by GOINNOVIOR LIMITED
+          <Footer style={{ textAlign: "center" }}>
+            Management Inventory System ©{new Date().getFullYear()} Created by
+            GOINNOVIOR LIMITED
           </Footer>
         </Layout>
       </Layout>
     </Layout>
   );
-}
+};
 
 export default Dashboard;

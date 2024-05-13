@@ -15,9 +15,12 @@ import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
 
 import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
 
-import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 
-import UserManage from "../Pages/Dashboard/UserManagement/UserManage"
+import AddNewSupplier from "../Pages/Dashboard/AllSuppliers/AddNewSupplier";
+import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
+
+
+import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 
 
 export const router = createBrowserRouter([
@@ -28,11 +31,17 @@ export const router = createBrowserRouter([
       // admin routes
       {
         path: '/',
-        element: <ReportDashboard/>
+        element: <ReportDashboard />
+
       },
       {
         path: 'allUsers',
         element: <AllUsers></AllUsers>
+      },
+      // requisition Approval
+      {
+        path: 'requisitionApp',
+        element: <RequisitionApproval/>
       },
       // Employee Routes
       {
@@ -64,11 +73,6 @@ export const router = createBrowserRouter([
       {
         path: 'allSuppliers',
         element: <Suppliers />
-      },
-      //User Management
-      {
-        path: 'userManagement',
-        element: <UserManage />
       },
     ]
   }
