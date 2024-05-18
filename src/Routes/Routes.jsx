@@ -24,6 +24,7 @@ import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard"
 import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
 import Requisition from './../Pages/Dashboard/Requisition/Requisition';
 import RequisitionRequest from "../Pages/Dashboard/Requisition/RequisitionRequest";
+import Designation from "../Pages/Dashboard/Settings/Designation/Designation";
 
 
 
@@ -57,7 +58,7 @@ export const router = createBrowserRouter([
         element: <AddNewEmployee />
       },
       {
-        path: 'edit-employee',
+        path: 'edit-employee/:id',
         element: <EditSingleEmploy />
       },
       // Product Routes
@@ -96,6 +97,11 @@ export const router = createBrowserRouter([
         element: <RequisitionRequest/>
       },
 
+      // Setting/ Designation
+      {
+        path: 'designation',
+        element: <Designation/>
+      },
     ]
   }
 ]);

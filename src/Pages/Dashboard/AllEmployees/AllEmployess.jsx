@@ -1,472 +1,267 @@
-// import React, { useState, useEffect } from 'react';
-// import Table from '@mui/material/Table';
-// import TableBody from '@mui/material/TableBody';
-// import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-// import TableContainer from '@mui/material/TableContainer';
-// import TableHead from '@mui/material/TableHead';
-// import TableRow from '@mui/material/TableRow';
-// import Paper from '@mui/material/Paper';
-// import { Link } from 'react-router-dom';
-// import {
-//   DeleteOutlined,
-//   EditOutlined,
-//   UserAddOutlined
-// } from '@ant-design/icons';
-// import Button from '@mui/material/Button';
-
-// // Dialog
-// import Dialog from '@mui/material/Dialog';
-// import DialogActions from '@mui/material/DialogActions';
-// import DialogContent from '@mui/material/DialogContent';
-// import DialogContentText from '@mui/material/DialogContentText';
-// import DialogTitle from '@mui/material/DialogTitle';
-
-// // Search bar
-// import { styled, alpha } from '@mui/material/styles';
-// import InputBase from '@mui/material/InputBase';
-// import SearchIcon from '@mui/icons-material/Search';
-
-// const Container = styled('div')(({ theme }) => ({
-//   display: 'flex',
-//   justifyContent: 'space-between',
-//   alignItems: 'center',
-//   marginBottom: theme.spacing(2),
-// }));
-
-// const Search = styled('div')(({ theme }) => ({
-//   position: 'relative',
-//   borderRadius: theme.shape.borderRadius,
-//   backgroundColor: alpha(theme.palette.common.white, 0.15),
-//   '&:hover': {
-//     backgroundColor: alpha(theme.palette.common.white, 0.25),
-
-//   },
-//   border: '1px solid #8689',
-// }));
-
-// const SearchIconWrapper = styled('div')(({ theme }) => ({
-//   padding: theme.spacing(0, 2),
-//   height: '100%',
-//   position: 'absolute',
-//   pointerEvents: 'none',
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'center',
-// }));
-
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//   color: 'inherit',
-//   '& .MuiInputBase-input': {
-//     padding: theme.spacing(1, 1, 1, 0),
-//     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//     transition: theme.transitions.create('width'),
-//     width: '100%',
-//     [theme.breakpoints.up('md')]: {
-//       width: '40ch',
-//     },
-//   },
-// }));
-
-// // Table
-// const StyledTableCell = styled(TableCell)(({ theme }) => ({
-//   [`&.${tableCellClasses.head}`]: {
-//     // backgroundColor: theme.palette.common.black,
-//     color: theme.palette.common.white,
-//     textAlign: 'center',
-//     border: '1px solid white',
-//     fontSize: '18px',
-//     // backgroundColor: '#084',
-//     backgroundColor: '#409',
-//   },
-//   [`&.${tableCellClasses.body}`]: {
-//     fontSize: 14,
-//     textAlign: 'center',
-//     border: '1px solid #000',
-//   },
-// }));
-
-// // const StyledTableRow = styled(TableRow)(({ theme }) => ({
-// //   '&:nth-of-type(odd)': {
-// //     backgroundColor: theme.palette.action.hover,
-// //   },
-// // }));
-
-// const StyledTableRow = styled(TableRow)(({ theme }) => ({
-//   '&:nth-of-type(odd)': {
-//     backgroundColor: theme.palette.action.hover,
-//   },
-//   '&.selected': {
-//     backgroundColor: '#bbdefb', // change color for selected row
-//   },
-// }));
-
-// const AllEmployees = () => {
-//   const [employees, setEmployees] = useState([]);
-
-//   const [selectedRow, setSelectedRow] = useState(null);
-//   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
-
-//   useEffect(() => {
-//     fetch('http://localhost:5000/api/v1/employees/allEmployees')
-//       .then(response => response.json())
-//       .then(data => setEmployees(data))
-//       .catch(error => console.error('Error fetching data:', error));
-//   }, []);
-
-//   const handleRowClick = (row) => {
-//     setSelectedRow(row);
-//   };
-
-//   const handleDeleteDialogOpen = () => {
-//     if (selectedRow) {
-//       setOpenDeleteDialog(true);
-//     } else {
-//       alert('Please select a row to delete.');
-//     }
-//   };
-
-//   const handleDeleteDialogClose = () => {
-//     setOpenDeleteDialog(false);
-//   };
-
-//   const handleDeleteConfirmed = () => {
-//     // Delete the selected row using its ID
-//     fetch(`http://localhost:5000/api/v1/employees/delete-employee/${selectedRow.empID}`, {
-//       method: 'DELETE',
-//     })
-//       .then(response => {
-//         if (response.ok) {
-//           // Remove the deleted row from the state
-//           setEmployees(prevEmployees => prevEmployees.filter(employee => employee.empID !== selectedRow.empID));
-//           setSelectedRow(null);
-//         }
-//       })
-//       .catch(error => console.error('Error deleting row:', error))
-//       .finally(() => setOpenDeleteDialog(false));
-//   };
-
-//   return (
-//     <>
-//       <Container>
-//         <div>
-//           <Link to="/add-employee">
-//             <Button
-//               type="primary"
-//               variant="contained" color="primary"
-//             ><UserAddOutlined />&nbsp;
-//               Add New Employee
-//             </Button>&nbsp;
-//           </Link>
-
-//           <Link to="/edit-Employee">
-//             <Button variant="contained" color="success"><EditOutlined />&nbsp;
-//               Edit
-//             </Button>&nbsp;
-//           </Link>
-
-//           <Button variant="contained" color="error" onClick={handleDeleteDialogOpen}><DeleteOutlined />&nbsp;
-//             Delete
-//           </Button>&nbsp;
-
-//         </div>
-
-//         <Search>
-//           <SearchIconWrapper>
-//             <SearchIcon />
-//           </SearchIconWrapper>
-//           <StyledInputBase
-//             placeholder="Search by Name ,Code or Mobile"
-//             inputProps={{ 'aria-label': 'search' }}
-//           />
-//         </Search>
-//       </Container>
-
-//       <TableContainer component={Paper}>
-//         <Table sx={{ minWidth: 700 }} aria-label="customized table">
-//           <TableHead>
-//             <TableRow>
-//               <StyledTableCell>Employee ID</StyledTableCell>
-//               <StyledTableCell>Name</StyledTableCell>
-//               <StyledTableCell>Mobile No</StyledTableCell>
-//               <StyledTableCell>Designation</StyledTableCell>
-//               <StyledTableCell>Email</StyledTableCell>
-//               <StyledTableCell>Order</StyledTableCell>
-//               <StyledTableCell>Department</StyledTableCell>
-//               <StyledTableCell>Active</StyledTableCell>
-//             </TableRow>
-//           </TableHead>
-//           <TableBody>
-//             {employees.map((employee) => (
-//               <StyledTableRow key={employee.empID} onClick={() => handleRowClick(employee)} className={selectedRow && selectedRow.empID === employee.empID ? 'selected' : ''}>
-//                 <StyledTableCell component="th" scope="row">
-//                   {employee.empID}
-//                 </StyledTableCell>
-//                 <StyledTableCell>{employee.name}</StyledTableCell>
-//                 <StyledTableCell>{employee.mobileNo}</StyledTableCell>
-//                 <StyledTableCell>{employee.designation}</StyledTableCell>
-//                 <StyledTableCell>{employee.email}</StyledTableCell>
-//                 <StyledTableCell>{employee.order}</StyledTableCell>
-//                 <StyledTableCell>{employee.department}</StyledTableCell>
-//                 <StyledTableCell>{employee.active ? 'Yes' : 'No'}</StyledTableCell>
-//               </StyledTableRow>
-//             ))}
-//           </TableBody>
-//         </Table>
-//       </TableContainer>
-//       {/* Delete Dialog */}
-//       <Dialog
-//         open={openDeleteDialog}
-//         onClose={handleDeleteDialogClose}
-//         aria-labelledby="alert-dialog-title"
-//         aria-describedby="alert-dialog-description"
-//       >
-//         <DialogTitle id="alert-dialog-title">{"Delete Employee"}</DialogTitle>
-//         <DialogContent>
-//           <DialogContentText id="alert-dialog-description">
-//             Are you sure you want to delete this employee?
-//           </DialogContentText>
-//         </DialogContent>
-//         <DialogActions>
-//           <Button onClick={handleDeleteDialogClose}>No</Button>
-//           <Button onClick={handleDeleteConfirmed} autoFocus>
-//             Yes
-//           </Button>
-//         </DialogActions>
-//       </Dialog>
-//     </>
-//   );
-// };
-
-// export default AllEmployees;
-
-
-// Frontend Code: AllEmployees.js
-
-import { useState, useEffect } from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Link } from 'react-router-dom';
-import {
-  DeleteOutlined,
-  EditOutlined,
-  UserAddOutlined
-} from '@ant-design/icons';
-import Button from '@mui/material/Button';
-
-// Dialog
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-
-// Search bar
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
-
-const Container = styled('div')(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  marginBottom: theme.spacing(2),
-}));
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  border: '1px solid #8689',
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '40ch',
-    },
-  },
-}));
-
-// Table
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    color: theme.palette.common.white,
-    textAlign: 'center',
-    border: '1px solid white',
-    fontSize: '18px',
-    backgroundColor: '#409',
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-    textAlign: 'center',
-    border: '1px solid #000',
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  '&.selected': {
-    backgroundColor: '#bbdefb',
-  },
-}));
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import EmployeePagination from "./EmployeePagination";
+import { toast } from "daisyui";
 
 const AllEmployees = () => {
   const [employees, setEmployees] = useState([]);
-  const [selectedRow, setSelectedRow] = useState(null);
-  const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
+  const [selectedEmployees, setSelectedEmployees] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1/employees/allEmployees')
-      .then(response => response.json())
-      .then(data => setEmployees(data))
-      .catch(error => console.error('Error fetching data:', error));
+    const dummyData = [
+      {
+        id: "E101",
+        name: "Mahbub Rahman",
+        mobile: "01749783301",
+        designation: "Senior Manager",
+        email: "mahbub@gmail.com",
+        order: 5,
+        department: "Human Resource",
+        active: "Yes",
+      },
+      {
+        id: "E102",
+        name: "Atikur Rahman",
+        mobile: "01749783301",
+        designation: "Senior Executive",
+        email: "atikk@gmail.com",
+        order: 4,
+        department: "ICT",
+        active: "Yes",
+      },
+      {
+        id: "E103",
+        name: "Rifat Mollah",
+        mobile: "01749783301",
+        designation: "Principal Engineer",
+        email: "rifat@gmail.com",
+        order: 5,
+        department: "Engineering",
+        active: "No",
+      },
+      {
+        id: "E104",
+        name: "Emon Hossain",
+        mobile: "01749783301",
+        designation: "Department Head",
+        email: "emon@gmail.com",
+        order: 5,
+        department: "ICT",
+        active: "Yes",
+      },
+      {
+        id: "E105",
+        name: "Jibon Mollah",
+        mobile: "01749783301",
+        designation: "Department Head",
+        email: "jibon@gmail.com",
+        order: 5,
+        department: "ICT",
+        active: "Yes",
+      },
+    ];
+    setEmployees(dummyData);
   }, []);
 
-  const handleRowClick = (row) => {
-    setSelectedRow(row);
-  };
-
-  const handleDeleteDialogOpen = () => {
-    if (selectedRow) {
-      setOpenDeleteDialog(true);
+  const handleSelectAll = (e) => {
+    if ( e.target.checked ) {
+      const allEmployeeIds = employees.map((emp) => emp.id);
+      setSelectedEmployees(allEmployeeIds);
     } else {
-      alert('Please select a row to delete.');
+      setSelectedEmployees([]);
     }
   };
 
-  const handleDeleteDialogClose = () => {
-    setOpenDeleteDialog(false);
+  const handleSelectEmployee = (id) => {
+    if (selectedEmployees.includes(id)) {
+      setSelectedEmployees(selectedEmployees.filter((empId) => empId !== id));
+    } else {
+      setSelectedEmployees([...selectedEmployees, id]);
+    }
   };
 
-  const handleDeleteConfirmed = () => {
-    // Delete the selected row using its ID
-    fetch(`http://localhost:5000/api/v1/employees/delete-employee/${selectedRow.empID}`, {
-      method: 'DELETE',
-    })
-      .then(response => {
-        if (response.ok) {
-          // Remove the deleted row from the state
-          setEmployees(prevEmployees => prevEmployees.filter(employee => employee.empID !== selectedRow.empID));
-          setSelectedRow(null);
-        }
-      })
-      .catch(error => console.error('Error deleting row:', error))
-      .finally(() => setOpenDeleteDialog(false));
+  const handleDeleteEmployee = (id) => {
+    if (window.confirm("Are you sure you want to delete this employee?")) {
+      setEmployees(employees.filter((employee) => employee.id !== id));
+      setSelectedEmployees(selectedEmployees.filter((empId) => empId !== id));
+      toast("Employee deleted successfully", { type: "success" });
+    }
+  };
+
+  const handleDeleteAll = () => {
+    if (window.confirm("Are you sure you want to delete all selected employees?")) {
+      setEmployees(employees.filter((employee) => !selectedEmployees.includes(employee.id)));
+      setSelectedEmployees([]);
+      toast("Selected employees deleted successfully", { type: "success" });
+    }
   };
 
   return (
     <>
-      <Container>
+      <div className="flex justify-between">
+        <div>
+          <h1 className="text-2xl mb-5">All Employees List</h1>
+        </div>
+        <div>
+          <label className="input input-bordered flex items-center gap-2">
+            <input
+              type="text"
+              className="grow"
+              placeholder="Search by Employee ID, Name, Mobile No, Email"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              className="w-8 h-4 opacity-70"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </label>
+        </div>
+      </div>
+      <div className="flex justify-between">
         <div>
           <Link to="/add-employee">
-            <Button
-              type="primary"
-              variant="contained" color="primary"
-            ><UserAddOutlined />&nbsp;
+            <button className="btn btn-sm bg-green-500 text-white mb-3 hover:bg-green-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="12"
+                width="10.5"
+                viewBox="0 0 448 512"
+              >
+                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+              </svg>
               Add New Employee
-            </Button>&nbsp;
+            </button>
           </Link>
-
-          <Link to="/edit-Employee">
-            <Button variant="contained" color="success"><EditOutlined />&nbsp;
-              Edit
-            </Button>&nbsp;
-          </Link>
-
-          <Button variant="contained" color="error" onClick={handleDeleteDialogOpen}><DeleteOutlined />&nbsp;
-            Delete
-          </Button>&nbsp;
-
+          {selectedEmployees.length > 1 && (
+            <button className="btn btn-error ms-5 text-base btn-sm" onClick={handleDeleteAll}>
+              <svg xmlns="http://www.w3.org/2000/svg" height="20" width="15" viewBox="0 0 384 512">
+                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+              </svg>
+              Delete All
+            </button>
+          )}
         </div>
-
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search by Name, Code, or Mobile"
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </Search>
-      </Container>
-
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Employee ID</StyledTableCell>
-              <StyledTableCell>Name</StyledTableCell>
-              <StyledTableCell>Mobile No</StyledTableCell>
-              <StyledTableCell>Designation</StyledTableCell>
-              <StyledTableCell>Email</StyledTableCell>
-              <StyledTableCell>Order</StyledTableCell>
-              <StyledTableCell>Department</StyledTableCell>
-              <StyledTableCell>Active</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
+        <div>
+          <details className="dropdown">
+            <summary className="m-1 btn-sm border bg-gray-300 pt-1">
+              Filtered By
+            </summary>
+            <ul className="p-2 shadow menu z-[1] bg-base-100 rounded-box w-52">
+              <li>
+                <a>Employee Designation</a>
+              </li>
+              <li>
+                <a>Status</a>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="table border rounded-lg bg-white ">
+          <thead>
+            <tr className="border bg-cyan-500 text-base text-white font-thin">
+              <th>
+                <label>
+                  <input type="checkbox" className="checkbox" checked={selectedEmployees.length === employees.length} onChange={handleSelectAll} />
+                </label>
+              </th>
+              <th>
+                <div className="flex justify-between">
+                  <div>Employee ID</div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="20"
+                      width="12.5"
+                      viewBox="0 0 320 512"
+                    >
+                      <path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z" />
+                    </svg>
+                  </div>
+                </div>
+              </th>
+              <th className="border">Name</th>
+              <th className="border">Mobile No</th>
+              <th className="border">Designation</th>
+              <th className="border">Email</th>
+              <th className="border">Order</th>
+              <th className="border">Department</th>
+              <th className="border">Active</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
             {employees.map((employee) => (
-              <StyledTableRow key={employee.empID} onClick={() => handleRowClick(employee)} className={selectedRow && selectedRow.empID === employee.empID ? 'selected' : ''}>
-                <StyledTableCell component="th" scope="row">
-                  {employee.empID}
-                </StyledTableCell>
-                <StyledTableCell>{employee.name}</StyledTableCell>
-                <StyledTableCell>{employee.mobileNo}</StyledTableCell>
-                <StyledTableCell>{employee.designation}</StyledTableCell>
-                <StyledTableCell>{employee.email}</StyledTableCell>
-                <StyledTableCell>{employee.order}</StyledTableCell>
-                <StyledTableCell>{employee.department}</StyledTableCell>
-                <StyledTableCell>{employee.active ? 'Yes' : 'No'}</StyledTableCell>
-              </StyledTableRow>
+              <tr
+                key={employee.id}
+                className="hover:bg-neutral-300 active:bg-neutral-700 focus:outline-none focus:ring focus:ring-neutral-300"
+              >
+                <th>
+                  <label>
+                    <input
+                      type="checkbox"
+                      className="checkbox"
+                      checked={selectedEmployees.includes(employee.id)}
+                      onChange={() => handleSelectEmployee(employee.id)}
+                    />
+                  </label>
+                </th>
+                <td className="border">{employee.id}</td>
+                <td className="border">{employee.name}</td>
+                <td className="border">{employee.mobile}</td>
+                <td className="border">{employee.designation}</td>
+                <td className="border">{employee.email}</td>
+                <td className="border">{employee.order}</td>
+                <td className="border">{employee.department}</td>
+                <td className="border">{employee.active}</td>
+                <td className="border">
+                  <div className="flex">
+                    <button onClick={() => handleDeleteEmployee(employee.id)}>
+                      <div className="flex-none w-6">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="20"
+                          width="17.5"
+                          viewBox="0 0 448 512"
+                        >
+                          <path
+                            opacity="1"
+                            fill="#f00528"
+                            d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                    <div className="flex-none w-5 pl-3">
+                      <Link to={`/edit-employee/${employee.id}`}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="20"
+                          width="18.5"
+                          viewBox="0 0 512 512"
+                        >
+                          <path d="M362.7 19.3c25-25 65.5-25 90.5 0l39.5 39.5c25 25 25 65.5 0 90.5L188.5 453.5c-9 9-20.2 15.7-32.5 19.2l-109 31.1c-9.8 2.8-20.3 .2-27.5-7s-9.8-17.7-7-27.5l31.1-109c3.5-12.3 10.2-23.5 19.2-32.5L362.7 19.3zM352 109.3L402.7 160 464 98.7 413.3 48 352 109.3zM369.9 180.1L331.9 142.1 91.4 382.6c-3.8 3.8-6.5 8.5-7.9 13.7L52.3 479.7l83.4-31.1c5.2-1.4 9.9-4.1 13.7-7.9l240.5-240.5z" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </td>
+              </tr>
             ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      {/* Delete Dialog */}
-      <Dialog
-        open={openDeleteDialog}
-        onClose={handleDeleteDialogClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{"Delete Employee"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Are you sure you want to delete this employee?
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleDeleteDialogClose}>No</Button>
-          <Button onClick={handleDeleteConfirmed} autoFocus>
-            Yes
-          </Button>
-        </DialogActions>
-      </Dialog>
+          </tbody>
+        </table>
+      </div>
+      <div className="my-5">
+        <EmployeePagination />
+      </div>
     </>
   );
 };
