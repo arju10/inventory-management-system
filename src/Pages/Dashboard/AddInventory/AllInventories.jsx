@@ -1,117 +1,118 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import EmployeePagination from "./EmployeePagination";
 import { toast } from "daisyui";
+import InventoryPagination from "./InventoryPagination";
 
-const AllEmployees = () => {
-  const [employees, setEmployees] = useState([]);
-  const [selectedEmployees, setSelectedEmployees] = useState([]);
 
-  useEffect(() => {
-    const dummyData = [
-      {
-        id: "E101",
-        name: "Mahbub Rahman",
-        mobile: "01749783301",
-        designation: "Senior Manager",
-        email: "mahbub@gmail.com",
-        order: 5,
-        department: "Human Resource",
-        active: "Yes",
-      },
-      {
-        id: "E102",
-        name: "Atikur Rahman",
-        mobile: "01749783301",
-        designation: "Senior Executive",
-        email: "atikk@gmail.com",
-        order: 4,
-        department: "ICT",
-        active: "Yes",
-      },
-      {
-        id: "E103",
-        name: "Rifat Mollah",
-        mobile: "01749783301",
-        designation: "Principal Engineer",
-        email: "rifat@gmail.com",
-        order: 5,
-        department: "Engineering",
-        active: "No",
-      },
-      {
-        id: "E104",
-        name: "Emon Hossain",
-        mobile: "01749783301",
-        designation: "Department Head",
-        email: "emon@gmail.com",
-        order: 5,
-        department: "ICT",
-        active: "Yes",
-      },
-      {
-        id: "E105",
-        name: "Jibon Mollah",
-        mobile: "01749783301",
-        designation: "Department Head",
-        email: "jibon@gmail.com",
-        order: 5,
-        department: "ICT",
-        active: "Yes",
-      },
-    ];
-    setEmployees(dummyData);
-  }, []);
+const AllInventories = () => {
+    const [inventories, setInventories] = useState([]);
+    const [selectedInventories, setSelectedInventories] = useState([]);
 
-  const handleSelectAll = (e) => {
-    if (e.target.checked) {
-      const allEmployeeIds = employees.map((emp) => emp.id);
-      setSelectedEmployees(allEmployeeIds);
-    } else {
-      setSelectedEmployees([]);
-    }
-  };
-
-  const handleSelectEmployee = (id) => {
-    if (selectedEmployees.includes(id)) {
-      setSelectedEmployees(selectedEmployees.filter((empId) => empId !== id));
-    } else {
-      setSelectedEmployees([...selectedEmployees, id]);
-    }
-  };
-
-  const handleDeleteEmployee = (id) => {
-    if (window.confirm("Are you sure you want to delete this employee?")) {
-      setEmployees(employees.filter((employee) => employee.id !== id));
-      setSelectedEmployees(selectedEmployees.filter((empId) => empId !== id));
-      toast("Employee deleted successfully", { type: "success" });
-    }
-  };
-
-  const handleDeleteAll = () => {
-    if (
-      window.confirm("Are you sure you want to delete all selected employees?")
-    ) {
-      setEmployees(
-        employees.filter((employee) => !selectedEmployees.includes(employee.id))
-      );
-      setSelectedEmployees([]);
-      toast("Selected employees deleted successfully", { type: "success" });
-    }
-  };
-
+    useEffect(() => {
+        const dummyData = [
+          {
+            // id: "E101",
+            date: "10-10-2023",
+            id: "PO-000011",
+            supplier: "Go Innovior",
+            mobile: "01749782209",
+            note: "Added Paper",
+            created: "Mr. Babul Khan",
+            lastUpdate: "Mr. Mokbul Khan",
+          },
+          {
+            // id: "E101",
+            date: "20-10-2023",
+            id: "PO-000045",
+            supplier: "Brain Station",
+            mobile: "01749782222",
+            note: "Added Paper",
+            created: "Mr. Babul Khan",
+            lastUpdate: "Mr. Mokbul Khan",
+          },
+          {
+            // id: "E101",
+            date: "10-10-2023",
+            id: "PO-000013",
+            supplier: "Go Innovior",
+            mobile: "01749782209",
+            note: "Added Paper",
+            created: "Mr. Babul Khan",
+            lastUpdate: "Mr. Mokbul Khan",
+          },
+          {
+            // id: "E101",
+            date: "10-10-2023",
+            id: "PO-000014",
+            supplier: "Go Innovior",
+            mobile: "01749782209",
+            note: "Added Paper",
+            created: "Mr. Babul Khan",
+            lastUpdate: "Mr. Mokbul Khan",
+          },
+          {
+            // id: "E101",
+            date: "10-10-2023",
+            id: "PO-000016",
+            supplier: "Go Innovior",
+            mobile: "01749782209",
+            note: "Added Paper",
+            created: "Mr. Babul Khan",
+            lastUpdate: "Mr. Mokbul Khan",
+          },
+          
+        ];
+        setInventories(dummyData);
+      }, []);
+    
+      const handleSelectAll = (e) => {
+        if (e.target.checked) {
+          const allInventoryIds = inventories.map((inv) => inv.id);
+          setSelectedInventories(allInventoryIds);
+        } else {
+          setSelectedInventories([]);
+        }
+      };
+    
+      const handleSelectInventory = (id) => {
+        if (selectedInventories.includes(id)) {
+          setSelectedInventories(selectedInventories.filter((invId) => invId !== id));
+        } else {
+          setSelectedInventories([...selectedInventories, id]);
+        }
+      };
+    
+      const handleDeleteInventory = (id) => {
+        if (window.confirm("Are you sure you want to delete this inventory?")) {
+          setInventories(inventories.filter((inventory) => inventory.id !== id));
+          setSelectedInventories(selectedInventories.filter((invId) => invId !== id));
+          toast("Inventory deleted successfully", { type: "success" });
+        }
+      };
+    
+      const handleDeleteAll = () => {
+        if (
+          window.confirm("Are you sure you want to delete all selected inventories?")
+        ) {
+          setInventories(
+            inventories.filter((inventory) => !selectedInventories.includes(inventory.id))
+          );
+          setSelectedInventories([]);
+          toast("Selected inventories deleted successfully", { type: "success" });
+        }
+      };
   return (
-    <>
+<>
       <div className="flex justify-between">
         <div>
-          <h1 className="text-2xl mb-5">All Employees List</h1>
+          <h1 className="text-2xl mb-5">Inventory List</h1>
         </div>
         <div>
           <label className="input input-bordered flex items-center gap-2">
             <input
               type="text"
               className="grow"
-              placeholder="Search by Employee ID, Name, Mobile No, Email"
+              placeholder="Search by Purchase ID, Supplier, Mobile No"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +131,7 @@ const AllEmployees = () => {
       </div>
       <div className="flex justify-between">
         <div>
-          <Link to="/add-employee">
+          <Link to="/add-inventory">
             <button className="btn btn-sm bg-green-500 text-white mb-3 hover:bg-green-600">
               {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -144,10 +145,10 @@ const AllEmployees = () => {
                 />
               </svg> */}
               <svg xmlns="http://www.w3.org/2000/svg" height="14" width="17.5" viewBox="0 0 640 512"><path fill="#f7f7f8" d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" /></svg>
-              Add New Employee
+              Add New Inventory
             </button>
           </Link>
-          {selectedEmployees.length > 1 && (
+          {selectedInventories.length > 1 && (
             <button
               className="btn btn-error ms-5 text-base btn-sm"
               onClick={handleDeleteAll}
@@ -175,14 +176,14 @@ const AllEmployees = () => {
                   <input
                     type="checkbox"
                     className="checkbox"
-                    checked={selectedEmployees.length === employees.length}
+                    checked={selectedInventories.length === inventories.length}
                     onChange={handleSelectAll}
                   />
                 </label>
               </th>
               <th >
                 <div className="flex justify-between">
-                  <div>Employee ID</div>
+                  <div>Date</div>
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +198,7 @@ const AllEmployees = () => {
               </th>
               <th className="border  ">
                 <div className="flex justify-between ">
-                  <div >Name</div>
+                  <div >Purchase</div>
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -210,13 +211,13 @@ const AllEmployees = () => {
                   </div>
                 </div>
               </th>
-              <th className="border  ">Mobile No</th>
-              <th className="borde  r">Designation</th>
-              <th className="border ">Email</th>
+              <th className="border  ">Supplier</th>
+              <th className="border ">Mobile</th>
+              <th className="border ">Accepted Note</th>
               <th className="border  ">
                 
                 <div className="flex justify-between  ">
-                  <div>Order</div>
+                  <div>Created</div>
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -229,31 +230,15 @@ const AllEmployees = () => {
                   </div>
                 </div>
               </th>
-              <th className="border  ">Department</th>
-              <th className="border  ">
-                
-                <div className="flex justify-between  ">
-                  <div >Active</div>
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="20"
-                      width="12.5"
-                      viewBox="0 0 320 512"
-                    >
-                      <path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z" />
-                    </svg>
-                  </div>
-                </div>
-              </th>
-              <th >Action</th>
+              <th className="border  ">Last Updated</th>
+              <th className="border  ">Action</th>
             </tr>
           </thead>
           <tbody>
-            {employees.map((employee) => (
+            {inventories.map((inventory) => (
               <tr
-                key={employee.id}
-                className={`hover:bg-neutral-300 active:bg-cyan-300 focus:outline-none focus:ring focus:ring-neutral-300 ${selectedEmployees.includes(employee.id) ? "bg-cyan-300" : ""
+                key={inventory.id}
+                className={`hover:bg-neutral-300 active:bg-cyan-300 focus:outline-none focus:ring focus:ring-neutral-300 ${selectedInventories.includes(inventory.id) ? "bg-cyan-300" : ""
                   }`}
               >
                 <th>
@@ -261,22 +246,22 @@ const AllEmployees = () => {
                     <input
                       type="checkbox"
                       className="checkbox"
-                      checked={selectedEmployees.includes(employee.id)}
-                      onChange={() => handleSelectEmployee(employee.id)}
+                      checked={selectedInventories.includes(inventory.id)}
+                      onChange={() => handleSelectInventory(inventory.id)}
                     />
                   </label>
                 </th>
-                <td className="border text-center">{employee.id}</td>
-                <td className="border ">{employee.name}</td>
-                <td className="border ">{employee.mobile}</td>
-                <td className="border ">{employee.designation}</td>
-                <td className="border ">{employee.email}</td>
-                <td className="border text-center  ">{employee.order}</td>
-                <td className="border ">{employee.department}</td>
-                <td className="border  text-center ">{employee.active}</td>
+                <td className="border ">{inventory.date}</td>
+                <td className="border text-center ">{inventory.id}</td>
+                <td className="border ">{inventory.supplier}</td>
+                <td className="border ">{inventory.mobile}</td>
+                <td className="border ">{inventory.note}</td>
+                <td className="border  ">{inventory.created}</td>
+                <td className="border ">{inventory.lastUpdate}</td>
+                
                 <td className="border">
                   <div className="flex">
-                    <button onClick={() => handleDeleteEmployee(employee.id)}>
+                    <button onClick={() => handleDeleteInventory(inventory.id)}>
                       <div className="flex-none w-6">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -293,7 +278,7 @@ const AllEmployees = () => {
                       </div>
                     </button>
                     <div className="flex-none w-5 pl-3">
-                      <Link to={`/edit-employee/${employee.id}`}>
+                      <Link to={`/edit-inventory/${inventory.id}`}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           height="20"
@@ -312,10 +297,10 @@ const AllEmployees = () => {
         </table>
       </div>
       <div className="my-5">
-        <EmployeePagination />
+        <InventoryPagination />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default AllEmployees;
+export default AllInventories

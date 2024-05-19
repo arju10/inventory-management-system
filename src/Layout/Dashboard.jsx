@@ -58,10 +58,10 @@ const Dashboard = () => {
       to: "/issuedRequisition",
     },
     {
-      key: "addInventory",
+      key: "allInventory",
       icon: <ShoppingCartOutlined />,
       label: "Add Inventory",
-      to: "/addInventory",
+      to: "/allInventory",
     },
     {
       key: "currentStock",

@@ -25,6 +25,9 @@ import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/Requisit
 import Requisition from './../Pages/Dashboard/Requisition/Requisition';
 import RequisitionRequest from "../Pages/Dashboard/Requisition/RequisitionRequest";
 import Designation from "../Pages/Dashboard/Settings/Designation/Designation";
+import AllInventories from "../Pages/Dashboard/AddInventory/AllInventories";
+import AddNewInventory from "../Pages/Dashboard/AddInventory/AddNewInventory";
+import EditInventory from "../Pages/Dashboard/AddInventory/EditInventory";
 
 
 
@@ -47,6 +50,19 @@ export const router = createBrowserRouter([
       {
         path: 'requisitionApp',
         element: <RequisitionApproval/>
+      },
+      // Add Inventory
+      {
+        path: 'allInventory',
+        element: <AllInventories/>
+      },
+      {
+        path: 'edit-Inventory',
+        element: <EditInventory/>
+      },
+      {
+        path: 'add-Inventory',
+        element: <AddNewInventory/>
       },
       // Employee Routes
       {
