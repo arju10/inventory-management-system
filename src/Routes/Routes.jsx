@@ -12,16 +12,17 @@ import EditSingleEmploy from "../Pages/Dashboard/AllEmployees/EditSingleEmploy";
 import AllProducts from "../Pages/Dashboard/AllProducts/AllProducts";
 import AddProductForm from "../Pages/Dashboard/AllProducts/AddProductForm";
 import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
+import ProductPagination from "../Pages/Dashboard/AllProducts/ProductPagination";
 
 import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
-
-
 import AddNewSupplier from "../Pages/Dashboard/AllSuppliers/AddNewSupplier";
 import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
+import SupplierPagination from "../Pages/Dashboard/AllSuppliers/SupplierPagination";
 
 
 import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
+import RequisitionAuthorization from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
 import Requisition from './../Pages/Dashboard/Requisition/Requisition';
 import RequisitionRequest from "../Pages/Dashboard/Requisition/RequisitionRequest";
 import Designation from "../Pages/Dashboard/Settings/Designation/Designation";
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: 'requisitionApp',
         element: <RequisitionApproval/>
+      },
+      {
+        path: 'requisitionAuthorization',
+        element: <RequisitionAuthorization/>
       },
       // Add Inventory
       {
@@ -101,9 +106,18 @@ export const router = createBrowserRouter([
         element: <AddNewSupplier />
       },
       {
-        path: 'editSupplier',
+        path: 'editSupplier/:id',
         element: <EditSupplier />
       },
+      {
+        path: 'supplierPagination',
+        element: <SupplierPagination />
+      },
+      {
+        path: 'ProductPagination',
+        element: <ProductPagination />
+      },
+
       {
         path: 'requisition',
         element: <Requisition/>
