@@ -10,22 +10,29 @@ import EditSingleEmploy from "../Pages/Dashboard/AllEmployees/EditSingleEmploy";
 import AllProducts from "../Pages/Dashboard/AllProducts/AllProducts";
 import AddProductForm from "../Pages/Dashboard/AllProducts/AddProductForm";
 import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
+import ProductPagination from "../Pages/Dashboard/AllProducts/ProductPagination";
 
 import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
 
 import AddNewSupplier from "../Pages/Dashboard/AllSuppliers/AddNewSupplier";
 import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
+import SupplierPagination from "../Pages/Dashboard/AllSuppliers/SupplierPagination";
 
 import IssuedRequisition from "../Pages/Dashboard/IssuedRequisition/IssuedRequisition";
 
 import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
-import Requisition from "./../Pages/Dashboard/Requisition/Requisition";
+
+import RequisitionAuthorization from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
+import Requisition from './../Pages/Dashboard/Requisition/Requisition';
+
 import RequisitionRequest from "../Pages/Dashboard/Requisition/RequisitionRequest";
 import Designation from "../Pages/Dashboard/Settings/Designation/Designation";
 import AllInventories from "../Pages/Dashboard/AddInventory/AllInventories";
 import AddNewInventory from "../Pages/Dashboard/AddInventory/AddNewInventory";
 import EditInventory from "../Pages/Dashboard/AddInventory/EditInventory";
+import InventoryBarCode from "../Pages/Dashboard/AddInventory/InventoryBarCode";
+import CurrentStock from "../Pages/Dashboard/CurrentStock/CurrentStock";
 
 export const router = createBrowserRouter([
   {
@@ -51,18 +58,36 @@ export const router = createBrowserRouter([
         path: "requisitionApp",
         element: <RequisitionApproval />,
       },
-      // Add Inventory
+      {
+        path: 'requisitionAuthorization',
+        element: <RequisitionAuthorization/>
+      },
+      // Add Inventory Routes
       {
         path: "allInventory",
         element: <AllInventories />,
       },
       {
-        path: "edit-Inventory",
-        element: <EditInventory />,
+
+        path: 'add-inventory',
+        element: <AddNewInventory/>
       },
       {
-        path: "add-Inventory",
-        element: <AddNewInventory />,
+        path: 'edit-Inventory/:id',
+        element: <EditInventory/>
+      },
+      {
+        path: 'print-bar-code/:id',
+        element: <InventoryBarCode/>
+      },
+      {
+        path: 'add-Inventory',
+        element: <AddNewInventory/>
+      },
+      // Current Stock Routes
+      {
+        path: 'currentStock',
+        element: <CurrentStock/>
       },
       // Employee Routes
       {
@@ -101,12 +126,22 @@ export const router = createBrowserRouter([
         element: <AddNewSupplier />,
       },
       {
-        path: "editSupplier",
-        element: <EditSupplier />,
+
+        path: 'editSupplier/:id',
+        element: <EditSupplier />
       },
       {
-        path: "requisition",
-        element: <Requisition />,
+        path: 'supplierPagination',
+        element: <SupplierPagination />
+      },
+      {
+        path: 'ProductPagination',
+        element: <ProductPagination />
+      },
+
+      {
+        path: 'requisition',
+        element: <Requisition/>
       },
       {
         path: "requisitionRequest",

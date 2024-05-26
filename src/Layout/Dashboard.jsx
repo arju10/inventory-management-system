@@ -34,10 +34,10 @@ const Dashboard = () => {
       to: "/requisition",
     },
     {
-      key: "requisionAuth",
+      key: "RequisitionAuthorization",
       icon: <ShoppingCartOutlined />,
       label: "Requisition(Authorize)",
-      to: "/requisionAuth",
+      to: "/RequisitionAuthorization",
     },
     {
       key: "requisionApp",
