@@ -1,6 +1,4 @@
-import {
-  createBrowserRouter,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 import Dashboard from "../Layout/Dashboard";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
@@ -15,15 +13,19 @@ import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
 import ProductPagination from "../Pages/Dashboard/AllProducts/ProductPagination";
 
 import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
+
 import AddNewSupplier from "../Pages/Dashboard/AllSuppliers/AddNewSupplier";
 import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
 import SupplierPagination from "../Pages/Dashboard/AllSuppliers/SupplierPagination";
 
+import IssuedRequisition from "../Pages/Dashboard/IssuedRequisition/IssuedRequisition";
 
 import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
 import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
+
 import RequisitionAuthorization from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
 import Requisition from './../Pages/Dashboard/Requisition/Requisition';
+
 import RequisitionRequest from "../Pages/Dashboard/Requisition/RequisitionRequest";
 import Designation from "../Pages/Dashboard/Settings/Designation/Designation";
 import AllInventories from "../Pages/Dashboard/AddInventory/AllInventories";
@@ -32,27 +34,29 @@ import EditInventory from "../Pages/Dashboard/AddInventory/EditInventory";
 import InventoryBarCode from "../Pages/Dashboard/AddInventory/InventoryBarCode";
 import CurrentStock from "../Pages/Dashboard/CurrentStock/CurrentStock";
 
-
-
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Dashboard />,
     children: [
       // admin routes
       {
-        path: '/',
-        element: <ReportDashboard />
-
+        path: "/",
+        element: <ReportDashboard />,
       },
       {
-        path: 'allUsers',
-        element: <AllUsers></AllUsers>
+        path: "allUsers",
+        element: <AllUsers></AllUsers>,
+      },
+      // Issued Requisition
+      {
+        path: "IssuedRequisition",
+        element: <IssuedRequisition />,
       },
       // requisition Approval
       {
-        path: 'requisitionApp',
-        element: <RequisitionApproval/>
+        path: "requisitionApp",
+        element: <RequisitionApproval />,
       },
       {
         path: 'requisitionAuthorization',
@@ -60,10 +64,11 @@ export const router = createBrowserRouter([
       },
       // Add Inventory Routes
       {
-        path: 'allInventory',
-        element: <AllInventories/>
+        path: "allInventory",
+        element: <AllInventories />,
       },
       {
+
         path: 'add-inventory',
         element: <AddNewInventory/>
       },
@@ -86,41 +91,42 @@ export const router = createBrowserRouter([
       },
       // Employee Routes
       {
-        path: 'allEmployees',
-        element: <AllEmployess />
+        path: "allEmployees",
+        element: <AllEmployess />,
       },
       {
-        path: 'add-Employee',
-        element: <AddNewEmployee />
+        path: "add-Employee",
+        element: <AddNewEmployee />,
       },
       {
-        path: 'edit-employee/:id',
-        element: <EditSingleEmploy />
+        path: "edit-employee/:id",
+        element: <EditSingleEmploy />,
       },
       // Product Routes
       {
-        path: 'allProducts',
-        element: <AllProducts />
+        path: "allProducts",
+        element: <AllProducts />,
       },
       {
-        path: 'addNewProduct',
-        element: <AddProductForm />
+        path: "addNewProduct",
+        element: <AddProductForm />,
       },
       {
-        path: 'editProduct',
-        element: <EditProduct />
+        path: "editProduct",
+        element: <EditProduct />,
       },
       // Suppliers Routes
       {
-        path: 'allSuppliers',
-        element: <Suppliers />
+        path: "allSuppliers",
+        element: <Suppliers />,
       },
 
       {
-        path: 'addNewSupplier',
-        element: <AddNewSupplier />
+        path: "addNewSupplier",
+        element: <AddNewSupplier />,
       },
       {
+
         path: 'editSupplier/:id',
         element: <EditSupplier />
       },
@@ -138,15 +144,15 @@ export const router = createBrowserRouter([
         element: <Requisition/>
       },
       {
-        path: 'requisitionRequest',
-        element: <RequisitionRequest/>
+        path: "requisitionRequest",
+        element: <RequisitionRequest />,
       },
 
       // Setting/ Designation
       {
-        path: 'designation',
-        element: <Designation/>
+        path: "designation",
+        element: <Designation />,
       },
-    ]
-  }
+    ],
+  },
 ]);
