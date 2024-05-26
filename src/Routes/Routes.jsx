@@ -29,6 +29,8 @@ import Designation from "../Pages/Dashboard/Settings/Designation/Designation";
 import AllInventories from "../Pages/Dashboard/AddInventory/AllInventories";
 import AddNewInventory from "../Pages/Dashboard/AddInventory/AddNewInventory";
 import EditInventory from "../Pages/Dashboard/AddInventory/EditInventory";
+import InventoryBarCode from "../Pages/Dashboard/AddInventory/InventoryBarCode";
+import CurrentStock from "../Pages/Dashboard/CurrentStock/CurrentStock";
 
 
 
@@ -56,18 +58,31 @@ export const router = createBrowserRouter([
         path: 'requisitionAuthorization',
         element: <RequisitionAuthorization/>
       },
-      // Add Inventory
+      // Add Inventory Routes
       {
         path: 'allInventory',
         element: <AllInventories/>
       },
       {
-        path: 'edit-Inventory',
+        path: 'add-inventory',
+        element: <AddNewInventory/>
+      },
+      {
+        path: 'edit-Inventory/:id',
         element: <EditInventory/>
+      },
+      {
+        path: 'print-bar-code/:id',
+        element: <InventoryBarCode/>
       },
       {
         path: 'add-Inventory',
         element: <AddNewInventory/>
+      },
+      // Current Stock Routes
+      {
+        path: 'currentStock',
+        element: <CurrentStock/>
       },
       // Employee Routes
       {

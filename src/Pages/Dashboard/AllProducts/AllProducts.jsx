@@ -83,7 +83,7 @@ const AllProducts = () => {
   const handleDeleteProduct = (id) => {
     if (window.confirm("Are you sure you want to delete this Product?")) {
       setProducts(Products.filter((Product) => Product.id !== id));
-      setSelectedProducts(selectedProducts.filter((empId) => proId !== id));
+      setSelectedProducts(selectedProducts.filter((proId) => proId !== id));
       toast("Product deleted successfully", { type: "success" });
     }
   };
