@@ -30,6 +30,12 @@ const Dashboard = () => {
       to: "/",
     },
     {
+      key: "requisition",
+      icon: <ShoppingCartOutlined />,
+      label: "Requisition",
+      to: "/requisition",
+    },
+    {
       key: "requisionAuth",
       icon: <ShoppingCartOutlined />,
       label: "Requisition(Authorize)",
