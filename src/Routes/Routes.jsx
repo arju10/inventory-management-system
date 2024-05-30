@@ -87,6 +87,14 @@ export const router = createBrowserRouter([
         path: 'editSupplier',
         element: <EditSupplier />
       },
+      {
+        path: 'requisition',
+        element: <Requisition />
+      },
+      {
+        path: 'requisitionRequest',
+        element: <RequisitionRequest />
+      },
 
     ]
   }
