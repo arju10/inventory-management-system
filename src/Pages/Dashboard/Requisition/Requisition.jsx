@@ -237,19 +237,19 @@ function Requisition() {
         </div>
         <div className="w-full overflow-x-auto">
           <table className="min-w-full bg-white mb-4">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">Date</th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">
+            <thead >
+              <tr >
+                <th className="text-left px-2 py-1 sm:px-4 sm:py-2 border">Date</th>
+                <th className="text-left px-2 py-1 sm:px-4 sm:py-2 border">
                   # Requisition
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">
+                <th className="text-left px-2 py-1 sm:px-4 sm:py-2 border">
                   Request By
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">
+                <th className="text-left px-2 py-1 sm:px-4 sm:py-2 border">
                   Request Status
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">Note</th>
+                <th className="text-left px-2 py-1 sm:px-4 sm:py-2 border">Note</th>
               </tr>
             </thead>
             <tbody>

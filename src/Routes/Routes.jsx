@@ -1,31 +1,38 @@
-import {
-  createBrowserRouter,
-} from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
-import Dashboard from "../Layout/Dashboard";
-import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import Dashboard from '../Layout/Dashboard';
+import AllUsers from '../Pages/Dashboard/AllUsers/AllUsers';
 
-import AllEmployess from "../Pages/Dashboard/AllEmployees/AllEmployess";
-import AddNewEmployee from "../Pages/Dashboard/AllEmployees/AddNewEmployee";
-import EditSingleEmploy from "../Pages/Dashboard/AllEmployees/EditSingleEmploy";
+import AllEmployess from '../Pages/Dashboard/AllEmployees/AllEmployess';
+import AddNewEmployee from '../Pages/Dashboard/AllEmployees/AddNewEmployee';
+import EditSingleEmploy from '../Pages/Dashboard/AllEmployees/EditSingleEmploy';
 
-import AllProducts from "../Pages/Dashboard/AllProducts/AllProducts";
-import AddProductForm from "../Pages/Dashboard/AllProducts/AddProductForm";
-import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
+import AllProducts from '../Pages/Dashboard/AllProducts/AllProducts';
+import AddProductForm from '../Pages/Dashboard/AllProducts/AddProductForm';
+import EditProduct from '../Pages/Dashboard/AllProducts/EditProduct';
+import ProductPagination from '../Pages/Dashboard/AllProducts/ProductPagination';
 
-import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
+import Suppliers from '../Pages/Dashboard/AllSuppliers/Suppliers';
 
+import AddNewSupplier from '../Pages/Dashboard/AllSuppliers/AddNewSupplier';
+import EditSupplier from '../Pages/Dashboard/AllSuppliers/EditSupplier';
+import SupplierPagination from '../Pages/Dashboard/AllSuppliers/SupplierPagination';
 
-import AddNewSupplier from "../Pages/Dashboard/AllSuppliers/AddNewSupplier";
-import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
+import IssuedRequisition from '../Pages/Dashboard/IssuedRequisition/IssuedRequisition';
 
+import ReportDashboard from '../Pages/Dashboard/ReportDashboard/ReportDashboard';
+import RequisitionApproval from '../Pages/Dashboard/RequisitionApproval/RequisitionApproval';
 
-import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
-import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
+import RequisitionAuthorization from '../Pages/Dashboard/RequisitionApproval/RequisitionApproval';
 import Requisition from './../Pages/Dashboard/Requisition/Requisition';
-import RequisitionRequest from "../Pages/Dashboard/Requisition/RequisitionRequest";
 
-
+import RequisitionRequest from '../Pages/Dashboard/Requisition/RequisitionRequest';
+import Designation from '../Pages/Dashboard/Settings/Designation/Designation';
+import AllInventories from '../Pages/Dashboard/AddInventory/AllInventories';
+import AddNewInventory from '../Pages/Dashboard/AddInventory/AddNewInventory';
+import EditInventory from '../Pages/Dashboard/AddInventory/EditInventory';
+import InventoryBarCode from '../Pages/Dashboard/AddInventory/InventoryBarCode';
+import CurrentStock from '../Pages/Dashboard/CurrentStock/CurrentStock';
 
 export const router = createBrowserRouter([
   {
@@ -35,67 +42,115 @@ export const router = createBrowserRouter([
       // admin routes
       {
         path: '/',
-        element: <ReportDashboard />
-
+        element: <ReportDashboard />,
       },
       {
         path: 'allUsers',
-        element: <AllUsers></AllUsers>
+        element: <AllUsers></AllUsers>,
+      },
+      // Issued Requisition
+      {
+        path: 'IssuedRequisition',
+        element: <IssuedRequisition />,
       },
       // requisition Approval
       {
         path: 'requisitionApp',
-        element: <RequisitionApproval/>
+        element: <RequisitionApproval />,
+      },
+      {
+        path: 'requisitionAuthorization',
+        element: <RequisitionAuthorization />,
+      },
+      // Add Inventory Routes
+      {
+        path: 'allInventory',
+        element: <AllInventories />,
+      },
+      {
+        path: 'add-inventory',
+        element: <AddNewInventory />,
+      },
+      {
+        path: 'edit-Inventory/:id',
+        element: <EditInventory />,
+      },
+      {
+        path: 'print-bar-code/:id',
+        element: <InventoryBarCode />,
+      },
+      {
+        path: 'add-Inventory',
+        element: <AddNewInventory />,
+      },
+      // Current Stock Routes
+      {
+        path: 'currentStock',
+        element: <CurrentStock />,
       },
       // Employee Routes
       {
         path: 'allEmployees',
-        element: <AllEmployess />
+        element: <AllEmployess />,
       },
       {
         path: 'add-Employee',
-        element: <AddNewEmployee />
+        element: <AddNewEmployee />,
       },
       {
-        path: 'edit-employee',
-        element: <EditSingleEmploy />
+        path: 'edit-employee/:id',
+        element: <EditSingleEmploy />,
       },
       // Product Routes
       {
         path: 'allProducts',
-        element: <AllProducts />
+        element: <AllProducts />,
       },
       {
         path: 'addNewProduct',
-        element: <AddProductForm />
+        element: <AddProductForm />,
       },
       {
         path: 'editProduct',
-        element: <EditProduct />
+        element: <EditProduct />,
       },
       // Suppliers Routes
       {
         path: 'allSuppliers',
-        element: <Suppliers />
+        element: <Suppliers />,
       },
 
       {
         path: 'addNewSupplier',
-        element: <AddNewSupplier />
+        element: <AddNewSupplier />,
       },
       {
-        path: 'editSupplier',
-        element: <EditSupplier />
+        path: 'editSupplier/:id',
+        element: <EditSupplier />,
       },
+      {
+        path: 'supplierPagination',
+        element: <SupplierPagination />,
+      },
+      {
+        path: 'ProductPagination',
+        element: <ProductPagination />,
+      },
+
       {
         path: 'requisition',
-        element: <Requisition />
+        element: <Requisition />,
       },
       {
         path: 'requisitionRequest',
-        element: <RequisitionRequest />
+        element: <RequisitionRequest />,
       },
 
-    ]
-  }
+      // Setting/ Designation
+      {
+        path: 'designation',
+        element: <Designation />,
+      },
+    ],
+  },
 ]);
