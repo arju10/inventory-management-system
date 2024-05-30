@@ -194,7 +194,7 @@ function Requisition() {
     <div className=" sm:p-6 h-screen">
       <div className="flex flex-col justify-btween items-center sm:flex-row sm:justify-between sm:items-center mb-4">
         <div className="flex flex-col justify-btween items-center sm:justify-between sm:items-start">
-          <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-blue-600">
+          <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-custom-dark">
             Requisition Request List
           </h2>
           <p className="text-center text-xs sm:text-start sm:text-sm md:text-base lg:text-base text-gray-600 ">
@@ -226,30 +226,30 @@ function Requisition() {
           <div className="flex flex-wrap justify-center sm:justify-start">
             <button
               onClick={handleButtonClick}
-              className="bg-green-500 text-white px-2 sm:px-4 py-1 sm:py-2 rounded hover:bg-green-600 m-1"
+              className="bg-blue-500 text-white px-2 sm:px-4 py-1 sm:py-2 rounded hover:bg-blue-600 m-1"
             >
               + New Requisition Request
             </button>
-            <button className="bg-blue-500 text-white px-2 sm:px-4 py-1 sm:py-2 rounded hover:bg-blue-600 m-1">
+            <button className="bg-white text-custom-blue px-2 sm:px-4 py-1 sm:py-2 rounded m-1">
               Preview
             </button>
           </div>
         </div>
         <div className="w-full overflow-x-auto">
           <table className="min-w-full bg-white mb-4">
-            <thead className="bg-gray-100">
+            <thead className="bg-custom-dark">
               <tr>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">Date</th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">Date</th>
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">
                   # Requisition
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">
                   Request By
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">
                   Request Status
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:py-2">Note</th>
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">Note</th>
               </tr>
             </thead>
             <tbody>
@@ -258,7 +258,7 @@ function Requisition() {
                   <tr
                     className={`border-b ${
                       selectedRowIndex === index
-                        ? "bg-blue-500 text-white"
+                        ? "bg-gray-300 text-white"
                         : "hover:bg-gray-200"
                     }`}
                     key={index}

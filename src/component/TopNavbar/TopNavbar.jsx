@@ -116,12 +116,12 @@ const TopNavbar = () => {
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" sx={{ backgroundColor: 'white' }}>
           <Toolbar>
             <IconButton
               size="large"
               edge="start"
-              color="inherit"
+              color="#2d2bff"
               aria-label="open drawer"
               sx={{ mr: 2 }}
             >
@@ -131,6 +131,7 @@ const TopNavbar = () => {
               variant="h6"
               noWrap
               component="div"
+              color='#2d2bff'
               sx={{ display: { xs: "none", sm: "block" } }}
             >
               GOINNOVIOR
@@ -171,7 +172,7 @@ const TopNavbar = () => {
                 aria-controls={menuId}
                 aria-haspopup="true"
                 onClick={handleProfileMenuOpen}
-                color="inherit"
+                color="#2d2bff"
               >
                 <AccountCircle />
               </IconButton>
