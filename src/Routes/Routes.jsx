@@ -33,6 +33,7 @@ import AddNewInventory from '../Pages/Dashboard/AddInventory/AddNewInventory';
 import EditInventory from '../Pages/Dashboard/AddInventory/EditInventory';
 import InventoryBarCode from '../Pages/Dashboard/AddInventory/InventoryBarCode';
 import CurrentStock from '../Pages/Dashboard/CurrentStock/CurrentStock';
+import RequisitionIssue from '../Pages/Dashboard/RequisitionIssue/RequisitionIssue';
 
 export const router = createBrowserRouter([
   {
@@ -144,6 +145,10 @@ export const router = createBrowserRouter([
       {
         path: 'requisitionRequest',
         element: <RequisitionRequest />,
+      },
+      {
+        path: 'requisitionIssue',
+        element: <RequisitionIssue />,
       },
 
       // Setting/ Designation

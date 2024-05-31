@@ -1,19 +1,25 @@
-import { useState } from "react";
-import { Layout, Menu } from "antd";
+import { useState } from 'react';
+import { Layout, Menu } from 'antd';
+import { FiPackage } from 'react-icons/fi';
 import {
-  DesktopOutlined,
+  TbReportAnalytics,
+  TbReportSearch,
+  TbReport,
+  TbFileReport,
+} from 'react-icons/tb';
+import {
+  LineChartOutlined,
   UserOutlined,
   ShoppingCartOutlined,
   BlockOutlined,
-  VerticalAlignBottomOutlined,
-  FileOutlined,
+  HomeOutlined,
   TeamOutlined,
   SettingOutlined,
   LogoutOutlined,
-} from "@ant-design/icons";
-import { Link } from "react-router-dom";
-import { Outlet } from "react-router-dom";
-import TopNavbar from "../component/TopNavbar/TopNavbar";
+} from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import TopNavbar from '../component/TopNavbar/TopNavbar';
 
 const { Sider, Content, Footer } = Layout;
 
@@ -22,110 +28,110 @@ const Dashboard = () => {
 
   const items = [
     {
-      key: "dashboard",
-      icon: <DesktopOutlined />,
-      label: "Dashboard",
-      to: "/",
+      key: 'dashboard',
+      icon: <HomeOutlined />,
+      label: 'Dashboard',
+      to: '/',
     },
     {
-      key: "requisition",
+      key: 'requisition',
+      icon: <TbReport />,
+      label: 'Requisition',
+      to: '/requisition',
+    },
+    {
+      key: 'RequisitionAuthorization',
+      icon: <TbReportSearch />,
+      label: 'Requisition(Authorize)',
+      to: '/RequisitionAuthorization',
+    },
+    {
+      key: 'requisionApp',
+      icon: <TbFileReport />,
+      label: 'Requisition(Approval)',
+      to: '/requisitionApp',
+    },
+    {
+      key: 'requisitionIssue',
+      icon: <TbFileReport />,
+      label: 'Requisition(issue)',
+      to: '/requisitionIssue',
+    },
+    {
+      key: 'issuedRequisition',
+      icon: <TbReportAnalytics />,
+      label: 'Issued Requisition',
+      to: '/issuedRequisition',
+    },
+    {
+      key: 'allInventory',
       icon: <ShoppingCartOutlined />,
-      label: "Requisition",
-      to: "/requisition",
+      label: 'Add Inventory',
+      to: '/allInventory',
     },
     {
-      key: "RequisitionAuthorization",
+      key: 'currentStock',
       icon: <ShoppingCartOutlined />,
-      label: "Requisition(Authorize)",
-      to: "/RequisitionAuthorization",
+      label: 'Current Stock',
+      to: '/currentStock',
     },
     {
-      key: "requisionApp",
+      key: 'stockAdjust',
       icon: <ShoppingCartOutlined />,
-      label: "Requisition(Approval)",
-      to: "/requisitionApp",
+      label: 'Stock Adjust',
+      to: '/stockAdjust',
     },
     {
-      key: "requisitionIssue",
-      icon: <ShoppingCartOutlined />,
-      label: "Requisition(issue)",
-      to: "/requisionIssue",
-    },
-    {
-      key: "issuedRequisition",
-      icon: <ShoppingCartOutlined />,
-      label: "Issued Requisition",
-      to: "/issuedRequisition",
-    },
-    {
-      key: "allInventory",
-      icon: <ShoppingCartOutlined />,
-      label: "Add Inventory",
-      to: "/allInventory",
-    },
-    {
-      key: "currentStock",
-      icon: <ShoppingCartOutlined />,
-      label: "Current Stock",
-      to: "/currentStock",
-    },
-    {
-      key: "stockAdjust",
-      icon: <ShoppingCartOutlined />,
-      label: "Stock Adjust",
-      to: "/stockAdjust",
-    },
-    {
-      key: "suppliers",
+      key: 'suppliers',
       icon: <BlockOutlined />,
-      label: "Suppliers",
-      to: "/allSuppliers",
+      label: 'Suppliers',
+      to: '/allSuppliers',
     },
     {
-      key: "products",
-      icon: <VerticalAlignBottomOutlined />,
-      label: "Products",
-      to: "/allProducts",
+      key: 'products',
+      icon: <FiPackage />,
+      label: 'Products',
+      to: '/allProducts',
     },
     {
-      key: "reports",
-      icon: <FileOutlined />,
-      label: "Reports",
-      to: "/reports",
+      key: 'reports',
+      icon: <LineChartOutlined />,
+      label: 'Reports',
+      to: '/reports',
     },
     {
-      key: "employee",
+      key: 'employee',
       icon: <TeamOutlined />,
-      label: "Employee",
-      to: "/allEmployees",
+      label: 'Employee',
+      to: '/allEmployees',
     },
     {
-      key: "userManagement",
+      key: 'userManagement',
       icon: <UserOutlined />,
-      label: "User Management",
-      to: "/userManagement",
+      label: 'User Management',
+      to: '/userManagement',
     },
     {
-      key: "settings",
+      key: 'settings',
       icon: <SettingOutlined />,
-      label: "Settings",
-      to: "/settings",
+      label: 'Settings',
+      to: '/settings',
     },
     {
-      key: "designation",
+      key: 'designation',
       icon: <LogoutOutlined />,
-      label: "Designation",
-      to: "/designation",
+      label: 'Designation',
+      to: '/designation',
     },
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh" } }>
+    <Layout style={{ minHeight: '100vh' }}>
       {/* <TopNavbar /> */}
       <Layout>
         <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
-          <div className="demo-logo-vertical" />
-          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+          <div className='demo-logo-vertical' />
+          <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
             {items.map((item) => (
               <Menu.Item key={item.key} icon={item.icon}>
                 <Link to={item.to}>{item.label}</Link>
@@ -135,12 +141,12 @@ const Dashboard = () => {
         </Sider>
         <Layout>
           <TopNavbar />
-          <Content style={{ margin: "0 16px" }}>
+          <Content style={{ margin: '0 16px' }}>
             <div style={{ padding: 24, minHeight: 360 }}>
               <Outlet />
             </div>
           </Content>
-          <Footer style={{ textAlign: "center" }}>
+          <Footer style={{ textAlign: 'center' }}>
             Management Inventory System ©{new Date().getFullYear()} Created by
             GOINNOVIOR LIMITED
           </Footer>
