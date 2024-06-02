@@ -121,7 +121,7 @@ const TopNavbar = () => {
             <IconButton
               size="large"
               edge="start"
-              color="#2d2bff"
+              color="#1677FF"
               aria-label="open drawer"
               sx={{ mr: 2 }}
             >
@@ -131,7 +131,7 @@ const TopNavbar = () => {
               variant="h6"
               noWrap
               component="div"
-              color='#2d2bff'
+              color="#1677FF"
               sx={{ display: { xs: "none", sm: "block" } }}
             >
               GOINNOVIOR
@@ -172,7 +172,7 @@ const TopNavbar = () => {
                 aria-controls={menuId}
                 aria-haspopup="true"
                 onClick={handleProfileMenuOpen}
-                color="#2d2bff"
+                color="#1677FF"
               >
                 <AccountCircle />
               </IconButton>
@@ -184,7 +184,7 @@ const TopNavbar = () => {
                 aria-controls={mobileMenuId}
                 aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
-                color="inherit"
+                color="#1677FF"
               >
                 <MoreIcon />
               </IconButton>

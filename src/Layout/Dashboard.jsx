@@ -9,8 +9,6 @@ import {
   FileOutlined,
   TeamOutlined,
   SettingOutlined,
-  TableOutlined,
-  LoginOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -36,10 +34,10 @@ const Dashboard = () => {
       to: "/requisition",
     },
     {
-      key: "requisionAuth",
+      key: "RequisitionAuthorization",
       icon: <ShoppingCartOutlined />,
       label: "Requisition(Authorize)",
-      to: "/requisionAuth",
+      to: "/RequisitionAuthorization",
     },
     {
       key: "requisionApp",
@@ -60,10 +58,10 @@ const Dashboard = () => {
       to: "/issuedRequisition",
     },
     {
-      key: "addInventory",
+      key: "allInventory",
       icon: <ShoppingCartOutlined />,
       label: "Add Inventory",
-      to: "/addInventory",
+      to: "/allInventory",
     },
     {
       key: "currentStock",
@@ -114,33 +112,15 @@ const Dashboard = () => {
       to: "/settings",
     },
     {
-      key: "profile",
-      icon: <UserOutlined />,
-      label: "Profile",
-      to: "/profile",
-    },
-    {
-      key: "customer",
-      icon: <TableOutlined />,
-      label: "Customer",
-      to: "/customer",
-    },
-    {
-      key: "login",
-      icon: <LoginOutlined />,
-      label: "Login",
-      to: "/login",
-    },
-    {
-      key: "register",
+      key: "designation",
       icon: <LogoutOutlined />,
-      label: "Register",
-      to: "/register",
+      label: "Designation",
+      to: "/designation",
     },
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout style={{ minHeight: "100vh" } }>
       {/* <TopNavbar /> */}
       <Layout>
         <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>

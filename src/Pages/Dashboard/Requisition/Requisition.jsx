@@ -1,5 +1,7 @@
+import { Pagination } from "antd";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
 
 function Requisition() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -194,7 +196,7 @@ function Requisition() {
     <div className=" sm:p-6 h-screen">
       <div className="flex flex-col justify-btween items-center sm:flex-row sm:justify-between sm:items-center mb-4">
         <div className="flex flex-col justify-btween items-center sm:justify-between sm:items-start">
-          <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-custom-dark">
+          <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-custom-dart">
             Requisition Request List
           </h2>
           <p className="text-center text-xs sm:text-start sm:text-sm md:text-base lg:text-base text-gray-600 ">
@@ -226,30 +228,34 @@ function Requisition() {
           <div className="flex flex-wrap justify-center sm:justify-start">
             <button
               onClick={handleButtonClick}
-              className="bg-blue-500 text-white px-2 sm:px-4 py-1 sm:py-2 rounded hover:bg-blue-600 m-1"
+              className="bg-custom-blue text-white hover:bg-blue-600 px-2 sm:px-4 py-1 sm:py-2 rounded m-1"
             >
               + New Requisition Request
             </button>
-            <button className="bg-white text-custom-blue px-2 sm:px-4 py-1 sm:py-2 rounded m-1">
+            <button className="bg-white text-custom-blue hover:bg-gray-50 px-2 sm:px-4 py-1 sm:py-2 rounded m-1">
               Preview
             </button>
           </div>
         </div>
         <div className="w-full overflow-x-auto">
           <table className="min-w-full bg-white mb-4">
-            <thead className="bg-custom-dark">
+            <thead className="bg-custom-dark text-white">
               <tr>
-                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">Date</th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 border">
+                  Date
+                </th>
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 border">
                   # Requisition
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 border">
                   Request By
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 border">
                   Request Status
                 </th>
-                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 text-white">Note</th>
+                <th className="text-left px-2 py-1 sm:px-4 sm:p-3 border">
+                  Note
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -258,7 +264,7 @@ function Requisition() {
                   <tr
                     className={`border-b ${
                       selectedRowIndex === index
-                        ? "bg-gray-300 text-white"
+                        ? "bg-custom-blue text-white"
                         : "hover:bg-gray-200"
                     }`}
                     key={index}
@@ -284,53 +290,77 @@ function Requisition() {
               )}
             </tbody>
           </table>
-          <nav>
-            <ul className="flex space-x-4">
-              <li className="page-item">
-                <a href="#" className="page-link" onClick={prevPage}>
-                  Prev
-                </a>
-              </li>
-              {numbers.map((n, i) => (
-                <li
-                  className={`page-item ${currentPage == n ? "active" : ""}`}
-                  key={i}
+          {/* Pagination controls */}
+          <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+            <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm text-gray-700">
+                  Showing <span className="font-medium">1</span> to{" "}
+                  <span className="font-medium">10</span> of{" "}
+                  <span className="font-medium">97</span> results
+                </p>
+              </div>
+              <div>
+                <nav
+                  className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                  aria-label="Pagination"
                 >
-                  <a href="#" className="page-item" onClick={()=>changeCpage(n)}>
-                    {n}
+                  <a
+                    href="#"
+                    className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    onClick={prevPage}
+                    aria-label="Previous"
+                  >
+                    <span className="sr-only">Previous</span>
+                    <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
                   </a>
-                </li>
-              ))}
-              <li className="page-item">
-                <a href="#" className="page-link" onClick={nextPage}>
-                  Next
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        {/* Pagination controls */}
-        <div className="flex justify-between items-center mt-4">
-          <div>{/* Add your pagination component here */}</div>
+                  {numbers.map((n, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      className={`relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
+                        currentPage === n
+                          ? "!bg-custom-dark text-white hover:text-white"
+                          : ""
+                      }`}
+                      onClick={() => changeCpage(n)}
+                    >
+                      {n}
+                    </a>
+                  ))}
+                  <a
+                    href="#"
+                    className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    onClick={nextPage}
+                    aria-label="Next"
+                  >
+                    <span className="sr-only">Next</span>
+                    <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+                  </a>
+                </nav>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 
-  function prevPage(){
-    if(currentPage !== firstIndex){
-      setCurrentPage(currentPage - 1)
+  function prevPage() {
+    if (currentPage !== firstIndex) {
+      setCurrentPage(currentPage - 1);
     }
   }
 
-  function nextPage(){
-    if(currentPage !== lastIndex){
-      setCurrentPage(currentPage + 1)
+  function nextPage() {
+    if (currentPage !== lastIndex) {
+      setCurrentPage(currentPage + 1);
     }
   }
 
-  function changeCpage(id){
-     setCurrentPage(id)
+  function changeCpage(id) {
+    console.log("Changing page to:", id);
+    setCurrentPage(id);
   }
 }
 
