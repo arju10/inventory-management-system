@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { toast } from "daisyui";
 import InventoryPagination from "./InventoryPagination";
 
 const IssuedRequisition = () => {
   const [inventories, setInventories] = useState([]);
-  const [selectedInventories, setSelectedInventories] = useState([]);
+  const selectedInventories = useState([]);
 
   useEffect(() => {
     const dummyData = [
       {
-        // id: "E101",
         date: "10-10-2023",
         id: "PO-000011",
         supplier: "Go Innovior",
@@ -21,7 +19,6 @@ const IssuedRequisition = () => {
         status: "pending",
       },
       {
-        // id: "E101",
         date: "20-10-2023",
         id: "PO-000045",
         supplier: "Brain Station",
@@ -32,7 +29,6 @@ const IssuedRequisition = () => {
         status: "pending",
       },
       {
-        // id: "E101",
         date: "10-10-2023",
         id: "PO-000013",
         supplier: "Go Innovior",
@@ -43,7 +39,6 @@ const IssuedRequisition = () => {
         status: "pending",
       },
       {
-        // id: "E101",
         date: "10-10-2023",
         id: "PO-000014",
         supplier: "Go Innovior",
@@ -54,7 +49,6 @@ const IssuedRequisition = () => {
         status: "pending",
       },
       {
-        // id: "E101",
         date: "10-10-2023",
         id: "PO-000016",
         supplier: "Go Innovior",
@@ -65,7 +59,6 @@ const IssuedRequisition = () => {
         status: "pending",
       },
       {
-        // id: "E101",
         date: "10-10-2023",
         id: "PO-000019",
         supplier: "Go Innovior",
@@ -76,7 +69,6 @@ const IssuedRequisition = () => {
         status: "pending",
       },
       {
-        // id: "E101",
         date: "10-10-2023",
         id: "PO-000018",
         supplier: "Go Innovior",
@@ -87,7 +79,6 @@ const IssuedRequisition = () => {
         status: "pending",
       },
       {
-        // id: "E101",
         date: "10-10-2023",
         id: "PO-000020",
         supplier: "Go Innovior",
@@ -101,50 +92,6 @@ const IssuedRequisition = () => {
     setInventories(dummyData);
   }, []);
 
-  const handleSelectAll = (e) => {
-    if (e.target.checked) {
-      const allInventoryIds = inventories.map((inv) => inv.id);
-      setSelectedInventories(allInventoryIds);
-    } else {
-      setSelectedInventories([]);
-    }
-  };
-
-  const handleSelectInventory = (id) => {
-    if (selectedInventories.includes(id)) {
-      setSelectedInventories(
-        selectedInventories.filter((invId) => invId !== id)
-      );
-    } else {
-      setSelectedInventories([...selectedInventories, id]);
-    }
-  };
-
-  const handleDeleteInventory = (id) => {
-    if (window.confirm("Are you sure you want to delete this inventory?")) {
-      setInventories(inventories.filter((inventory) => inventory.id !== id));
-      setSelectedInventories(
-        selectedInventories.filter((invId) => invId !== id)
-      );
-      toast("Inventory deleted successfully", { type: "success" });
-    }
-  };
-
-  const handleDeleteAll = () => {
-    if (
-      window.confirm(
-        "Are you sure you want to delete all selected inventories?"
-      )
-    ) {
-      setInventories(
-        inventories.filter(
-          (inventory) => !selectedInventories.includes(inventory.id)
-        )
-      );
-      setSelectedInventories([]);
-      toast("Selected inventories deleted successfully", { type: "success" });
-    }
-  };
   return (
     <>
       <div className="flex justify-between">
@@ -178,16 +125,6 @@ const IssuedRequisition = () => {
         <table className="table border rounded-lg bg-white">
           <thead>
             <tr className="border bg-cyan-500 text-base text-white font-thin">
-              <th>
-                <label>
-                  <input
-                    type="checkbox"
-                    className="checkbox"
-                    checked={selectedInventories.length === inventories.length}
-                    onChange={handleSelectAll}
-                  />
-                </label>
-              </th>
               <th>
                 <div className="flex justify-between">
                   <div>Date</div>
@@ -234,16 +171,6 @@ const IssuedRequisition = () => {
                     : ""
                 }`}
               >
-                <th>
-                  <label>
-                    <input
-                      type="checkbox"
-                      className="checkbox"
-                      checked={selectedInventories.includes(inventory.id)}
-                      onChange={() => handleSelectInventory(inventory.id)}
-                    />
-                  </label>
-                </th>
                 <td className="border ">{inventory.date}</td>
                 <td className="border text-center ">{inventory.id}</td>
                 <td className="border ">{inventory.created}</td>
