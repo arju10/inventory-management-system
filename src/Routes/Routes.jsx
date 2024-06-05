@@ -36,6 +36,7 @@ import CurrentStock from "../Pages/Dashboard/CurrentStock/CurrentStock";
 import AllProductKeys from "../Pages/Dashboard/Settings/ProductKey/AllProductKeys";
 import AddProductKey from "../Pages/Dashboard/Settings/ProductKey/AddProductKey";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -155,7 +156,7 @@ export const router = createBrowserRouter([
         path: "designation",
         element: <Designation />,
       },
-      // Setting/ Designation
+      // Setting/ Product key
       {
         path: "productKeys",
         element: <AllProductKeys />,
