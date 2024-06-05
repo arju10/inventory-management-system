@@ -136,7 +136,7 @@ const AllProductKeys = () => {
       <div className="overflow-x-auto">
         <table className="table border rounded-lg bg-white">
           <thead>
-            <tr className="border bg-cyan-500 text-base text-white font-thin">
+            <tr className="border bg-custom-dark text-base text-white font-thin">
               <th>
                 <label>
                   <input

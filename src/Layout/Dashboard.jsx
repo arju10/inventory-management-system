@@ -130,11 +130,11 @@ const Dashboard = () => {
   return (
     <div className="flex min-h-screen">
       <div className={`flex flex-col bg-gray-800 text-white ${collapsed ? 'w-16' : 'w-64'} transition-width duration-200`}>
-        <div className="flex items-center justify-center p-4">
+        {/* <div className="flex items-center justify-center p-4">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
             GOINNOVIOR
           </Link>
-        </div>
+        </div> */}
         <nav className="flex-1 overflow-y-auto">
           <ul className="menu p-2">
             {items.map((item) => (
