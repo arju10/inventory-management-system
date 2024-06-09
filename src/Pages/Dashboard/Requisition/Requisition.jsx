@@ -1,3 +1,4 @@
+
 import { Pagination } from "antd";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +18,167 @@ function Requisition() {
       status: "Pending",
       note: "",
     },
-    // Add more dummy data as needed
+    {
+      date: "13-05-2023",
+      requisition: "R00029",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00012",
+      requestBy: "Test, Assistant Programmer",
+      status: "Pending",
+      note: "Test",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00006",
+      requestBy: "MR. Jr. Executive, Jr, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "15-02-2024",
+      requisition: "R00035",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00029",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00012",
+      requestBy: "Test, Assistant Programmer",
+      status: "Pending",
+      note: "Test",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00006",
+      requestBy: "MR. Jr. Executive, Jr, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "15-02-2024",
+      requisition: "R00035",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00029",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00012",
+      requestBy: "Test, Assistant Programmer",
+      status: "Pending",
+      note: "Test",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00006",
+      requestBy: "MR. Jr. Executive, Jr, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "15-02-2024",
+      requisition: "R00035",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00029",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00012",
+      requestBy: "Test, Assistant Programmer",
+      status: "Pending",
+      note: "Test",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00006",
+      requestBy: "MR. Jr. Executive, Jr, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "15-02-2024",
+      requisition: "R00035",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00029",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00012",
+      requestBy: "Test, Assistant Programmer",
+      status: "Pending",
+      note: "Test",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00006",
+      requestBy: "MR. Jr. Executive, Jr, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "15-02-2024",
+      requisition: "R00035",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00029",
+      requestBy: "user 6, Executive",
+      status: "Pending",
+      note: "",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00012",
+      requestBy: "Test, Assistant Programmer",
+      status: "Pending",
+      note: "Test",
+    },
+    {
+      date: "13-05-2023",
+      requisition: "R00006",
+      requestBy: "MR. Jr. Executive, Jr, Executive",
+      status: "Pending",
+      note: "",
+    },
   ];
   const navigate = useNavigate();
   const handleButtonClick = () => {
@@ -33,13 +194,13 @@ function Requisition() {
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
   return (
-    <div className="sm:p-6 h-screen">
-      <div className="flex flex-col justify-between items-center sm:flex-row sm:justify-between sm:items-center mb-4">
-        <div className="flex flex-col justify-between items-center sm:justify-between sm:items-start">
+    <div className=" sm:p-6 h-screen">
+      <div className="flex flex-col justify-btween items-center sm:flex-row sm:justify-between sm:items-center mb-4">
+        <div className="flex flex-col justify-btween items-center sm:justify-between sm:items-start">
           <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-custom-dart">
             Requisition Request List
           </h2>
-          <p className="text-center text-xs sm:text-start sm:text-sm md:text-base lg:text-base text-gray-600">
+          <p className="text-center text-xs sm:text-start sm:text-sm md:text-base lg:text-base text-gray-600 ">
             To multiple item select, use ctrl or shift key while selecting
           </p>
         </div>
@@ -72,7 +233,7 @@ function Requisition() {
             >
               + New Requisition Request
             </button>
-            <button className="bg-white text-custom-blue hover:bg-gray-50 px-2 sm:px-4 py-1 sm:py-2 rounded m-1">
+            <button className="bg-gray-50 text-custom-blue hover:bg-gray-100 px-2 sm:px-4 py-1 sm:py-2 rounded m-1">
               Preview
             </button>
           </div>
@@ -135,9 +296,9 @@ function Requisition() {
             <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
               <div>
                 <p className="text-sm text-gray-700">
-                  Showing <span className="font-medium">{firstIndex + 1}</span> to{" "}
-                  <span className="font-medium">{Math.min(lastIndex, dummyData.length)}</span> of{" "}
-                  <span className="font-medium">{dummyData.length}</span> results
+                  Showing <span className="font-medium">1</span> to{" "}
+                  <span className="font-medium">10</span> of{" "}
+                  <span className="font-medium">97</span> results
                 </p>
               </div>
               <div>
@@ -145,18 +306,19 @@ function Requisition() {
                   className="isolate inline-flex -space-x-px rounded-md shadow-sm"
                   aria-label="Pagination"
                 >
-                  <button
+                  <a
+                    href="#"
                     className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                     onClick={prevPage}
                     aria-label="Previous"
-                    disabled={currentPage === 1}
                   >
                     <span className="sr-only">Previous</span>
                     <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-                  </button>
+                  </a>
                   {numbers.map((n, i) => (
-                    <button
+                    <a
                       key={i}
+                      href="#"
                       className={`relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${
                         currentPage === n
                           ? "!bg-custom-dark text-white hover:text-white"
@@ -165,17 +327,17 @@ function Requisition() {
                       onClick={() => changeCpage(n)}
                     >
                       {n}
-                    </button>
+                    </a>
                   ))}
-                  <button
+                  <a
+                    href="#"
                     className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                     onClick={nextPage}
                     aria-label="Next"
-                    disabled={currentPage === npage}
                   >
                     <span className="sr-only">Next</span>
                     <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-                  </button>
+                  </a>
                 </nav>
               </div>
             </div>
@@ -186,18 +348,19 @@ function Requisition() {
   );
 
   function prevPage() {
-    if (currentPage > 1) {
+    if (currentPage !== firstIndex) {
       setCurrentPage(currentPage - 1);
     }
   }
 
   function nextPage() {
-    if (currentPage < npage) {
+    if (currentPage !== lastIndex) {
       setCurrentPage(currentPage + 1);
     }
   }
 
   function changeCpage(id) {
+    console.log("Changing page to:", id);
     setCurrentPage(id);
   }
 }
