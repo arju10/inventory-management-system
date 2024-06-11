@@ -48,7 +48,7 @@ const Dashboard = () => {
           key: "requisitionIssue",
           icon: <ShoppingCartOutlined />,
           label: "Requisition(issue)",
-          to: "/requisionIssue",
+          to: "/IssuedRequisition",
         },
         {
           key: "issuedRequisition",
