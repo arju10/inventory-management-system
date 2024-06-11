@@ -40,6 +40,10 @@ import RequisitionIssue from '../Pages/Dashboard/RequisitionIssue/RequisitionIss
 
 
 
+
+//for report page
+import Reports from "../Pages/Report/Reports";
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -182,6 +186,12 @@ export const router = createBrowserRouter([
         path: 'edit-productKey/:id',
         element: <EditSingleEmploy />,
       },
+
+      //Reports page routing
+      {
+        path: "reports",
+        element: <Reports />,
+      }
     ],
   },
 ]);
