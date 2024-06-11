@@ -34,6 +34,10 @@ import EditInventory from "../Pages/Dashboard/AddInventory/EditInventory";
 import InventoryBarCode from "../Pages/Dashboard/AddInventory/InventoryBarCode";
 import CurrentStock from "../Pages/Dashboard/CurrentStock/CurrentStock";
 
+
+//for report page
+import Reports from "../Pages/Report/Reports";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -153,6 +157,12 @@ export const router = createBrowserRouter([
         path: "designation",
         element: <Designation />,
       },
+
+      //Reports page routing
+      {
+        path: "reports",
+        element: <Reports />,
+      }
     ],
   },
 ]);
