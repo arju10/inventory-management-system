@@ -1,5 +1,4 @@
 /* eslint-disable */
-import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import {
   DesktopOutlined,
@@ -13,6 +12,7 @@ import {
   LogoutOutlined
 } from "@ant-design/icons";
 import TopNavbar from "../component/TopNavbar/TopNavbar";
+import { useState } from "react";
 
 const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);

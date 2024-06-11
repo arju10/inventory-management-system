@@ -1,29 +1,29 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
-import Dashboard from "../Layout/Dashboard";
-import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import Dashboard from '../Layout/Dashboard';
+import AllUsers from '../Pages/Dashboard/AllUsers/AllUsers';
 
-import AllEmployess from "../Pages/Dashboard/AllEmployees/AllEmployess";
-import AddNewEmployee from "../Pages/Dashboard/AllEmployees/AddNewEmployee";
-import EditSingleEmploy from "../Pages/Dashboard/AllEmployees/EditSingleEmploy";
+import AllEmployess from '../Pages/Dashboard/AllEmployees/AllEmployess';
+import AddNewEmployee from '../Pages/Dashboard/AllEmployees/AddNewEmployee';
+import EditSingleEmploy from '../Pages/Dashboard/AllEmployees/EditSingleEmploy';
 
-import AllProducts from "../Pages/Dashboard/AllProducts/AllProducts";
-import AddProductForm from "../Pages/Dashboard/AllProducts/AddProductForm";
-import EditProduct from "../Pages/Dashboard/AllProducts/EditProduct";
-import ProductPagination from "../Pages/Dashboard/AllProducts/ProductPagination";
+import AllProducts from '../Pages/Dashboard/AllProducts/AllProducts';
+import AddProductForm from '../Pages/Dashboard/AllProducts/AddProductForm';
+import EditProduct from '../Pages/Dashboard/AllProducts/EditProduct';
+import ProductPagination from '../Pages/Dashboard/AllProducts/ProductPagination';
 
-import Suppliers from "../Pages/Dashboard/AllSuppliers/Suppliers";
+import Suppliers from '../Pages/Dashboard/AllSuppliers/Suppliers';
 
-import AddNewSupplier from "../Pages/Dashboard/AllSuppliers/AddNewSupplier";
-import EditSupplier from "../Pages/Dashboard/AllSuppliers/EditSupplier";
-import SupplierPagination from "../Pages/Dashboard/AllSuppliers/SupplierPagination";
+import AddNewSupplier from '../Pages/Dashboard/AllSuppliers/AddNewSupplier';
+import EditSupplier from '../Pages/Dashboard/AllSuppliers/EditSupplier';
+import SupplierPagination from '../Pages/Dashboard/AllSuppliers/SupplierPagination';
 
-import IssuedRequisition from "../Pages/Dashboard/IssuedRequisition/IssuedRequisition";
+import IssuedRequisition from '../Pages/Dashboard/IssuedRequisition/IssuedRequisition';
 
-import ReportDashboard from "../Pages/Dashboard/ReportDashboard/ReportDashboard";
-import RequisitionApproval from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
+import ReportDashboard from '../Pages/Dashboard/ReportDashboard/ReportDashboard';
+import RequisitionApproval from '../Pages/Dashboard/RequisitionApproval/RequisitionApproval';
 
-import RequisitionAuthorization from "../Pages/Dashboard/RequisitionApproval/RequisitionApproval";
+import RequisitionAuthorization from '../Pages/Dashboard/RequisitionApproval/RequisitionApproval';
 import Requisition from './../Pages/Dashboard/Requisition/Requisition';
 
 import RequisitionRequest from "../Pages/Dashboard/Requisition/RequisitionRequest";
@@ -35,125 +35,130 @@ import InventoryBarCode from "../Pages/Dashboard/AddInventory/InventoryBarCode";
 import CurrentStock from "../Pages/Dashboard/CurrentStock/CurrentStock";
 import AllProductKeys from "../Pages/Dashboard/Settings/ProductKey/AllProductKeys";
 import AddProductKey from "../Pages/Dashboard/Settings/ProductKey/AddProductKey";
+import RequisitionIssue from '../Pages/Dashboard/RequisitionIssue/RequisitionIssue';
+
+
 
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Dashboard />,
     children: [
       // admin routes
       {
-        path: "/",
+        path: '/',
         element: <ReportDashboard />,
       },
       {
-        path: "allUsers",
+        path: 'allUsers',
         element: <AllUsers></AllUsers>,
       },
       // Issued Requisition
       {
-        path: "IssuedRequisition",
+        path: 'IssuedRequisition',
         element: <IssuedRequisition />,
       },
       // requisition Approval
       {
-        path: "requisitionApp",
+        path: 'requisitionApp',
         element: <RequisitionApproval />,
       },
       {
         path: 'requisitionAuthorization',
-        element: <RequisitionAuthorization/>
+        element: <RequisitionAuthorization />,
       },
       // Add Inventory Routes
       {
-        path: "allInventory",
+        path: 'allInventory',
         element: <AllInventories />,
       },
       {
-
         path: 'add-inventory',
-        element: <AddNewInventory/>
+        element: <AddNewInventory />,
       },
       {
         path: 'edit-Inventory/:id',
-        element: <EditInventory/>
+        element: <EditInventory />,
       },
       {
         path: 'print-bar-code/:id',
-        element: <InventoryBarCode/>
+        element: <InventoryBarCode />,
       },
       {
         path: 'add-Inventory',
-        element: <AddNewInventory/>
+        element: <AddNewInventory />,
       },
       // Current Stock Routes
       {
         path: 'currentStock',
-        element: <CurrentStock/>
+        element: <CurrentStock />,
       },
       // Employee Routes
       {
-        path: "allEmployees",
+        path: 'allEmployees',
         element: <AllEmployess />,
       },
       {
-        path: "add-Employee",
+        path: 'add-Employee',
         element: <AddNewEmployee />,
       },
       {
-        path: "edit-employee/:id",
+        path: 'edit-employee/:id',
         element: <EditSingleEmploy />,
       },
       // Product Routes
       {
-        path: "allProducts",
+        path: 'allProducts',
         element: <AllProducts />,
       },
       {
-        path: "addNewProduct",
+        path: 'addNewProduct',
         element: <AddProductForm />,
       },
       {
-        path: "editProduct",
+        path: 'editProduct',
         element: <EditProduct />,
       },
       // Suppliers Routes
       {
-        path: "allSuppliers",
+        path: 'allSuppliers',
         element: <Suppliers />,
       },
 
       {
-        path: "addNewSupplier",
+        path: 'addNewSupplier',
         element: <AddNewSupplier />,
       },
       {
-
         path: 'editSupplier/:id',
-        element: <EditSupplier />
+        element: <EditSupplier />,
       },
       {
         path: 'supplierPagination',
-        element: <SupplierPagination />
+        element: <SupplierPagination />,
       },
       {
         path: 'ProductPagination',
-        element: <ProductPagination />
+        element: <ProductPagination />,
       },
 
       {
         path: 'requisition',
-        element: <Requisition/>
+        element: <Requisition />,
       },
       {
-        path: "requisitionRequest",
+        path: 'requisitionRequest',
         element: <RequisitionRequest />,
+      },
+      {
+        path: 'requisitionIssue',
+        element: <RequisitionIssue />,
       },
 
       // Setting/ Designation
       {
-        path: "designation",
+        path: 'designation',
         element: <Designation />,
       },
       // Setting/ Product key
@@ -167,6 +172,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "edit-productKey/:id",
+        element: <AllProductKeys />,
+      },
+      {
+        path: 'add-productKey',
+        element: <AddProductKey />,
+      },
+      {
+        path: 'edit-productKey/:id',
         element: <EditSingleEmploy />,
       },
     ],
