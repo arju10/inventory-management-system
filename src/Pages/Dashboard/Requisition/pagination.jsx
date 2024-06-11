@@ -1,6 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid'
 
-const RequisitionApprovalPagination = () => {
+const Pagination = () => {
     return (
         <div>
             {/* Pagination */}
@@ -39,7 +39,7 @@ const RequisitionApprovalPagination = () => {
                             <a
                                 href="#"
                                 aria-current="page"
-                                className="relative z-10 inline-flex items-center bg-custom-dark px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
+                                className="relative z-10 inline-flex items-center bg-cyan-500 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
                             >
                                 1
                             </a>
@@ -92,7 +92,7 @@ const RequisitionApprovalPagination = () => {
     )
 }
 
-export default RequisitionApprovalPagination
+export default Pagination
 
 
 

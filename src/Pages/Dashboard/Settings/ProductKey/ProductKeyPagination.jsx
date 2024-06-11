@@ -1,6 +1,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid'
 
-const RequisitionApprovalPagination = () => {
+
+const ProductKeyPagination = () => {
     return (
         <div>
             {/* Pagination */}
@@ -88,13 +89,7 @@ const RequisitionApprovalPagination = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 
-export default RequisitionApprovalPagination
-
-
-
-
-
+export default ProductKeyPagination

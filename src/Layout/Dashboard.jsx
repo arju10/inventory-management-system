@@ -1,12 +1,5 @@
 import { useState } from 'react';
 import { Layout, Menu } from 'antd';
-import { FiPackage } from 'react-icons/fi';
-import {
-  TbReportAnalytics,
-  TbReportSearch,
-  TbReport,
-  TbFileReport,
-} from 'react-icons/tb';
 import {
   LineChartOutlined,
   UserOutlined,
@@ -25,41 +18,43 @@ const { Sider, Content, Footer } = Layout;
 
 const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const location = useLocation();
 
   const items = [
     {
       key: 'dashboard',
-      icon: <HomeOutlined />,
+      icon: <DesktopOutlined />,
       label: 'Dashboard',
       to: '/',
     },
     {
       key: 'requisition',
-      icon: <TbReport />,
+      icon: <ShoppingCartOutlined />,
       label: 'Requisition',
       to: '/requisition',
     },
     {
       key: 'RequisitionAuthorization',
-      icon: <TbReportSearch />,
+      icon: <ShoppingCartOutlined />,
       label: 'Requisition(Authorize)',
       to: '/RequisitionAuthorization',
     },
     {
       key: 'requisionApp',
-      icon: <TbFileReport />,
+      icon: <ShoppingCartOutlined />,
       label: 'Requisition(Approval)',
       to: '/requisitionApp',
     },
     {
       key: 'requisitionIssue',
-      icon: <TbFileReport />,
+      icon: <ShoppingCartOutlined />,
       label: 'Requisition(issue)',
-      to: '/requisitionIssue',
+      to: '/requisionIssue',
     },
     {
       key: 'issuedRequisition',
-      icon: <TbReportAnalytics />,
+      icon: <ShoppingCartOutlined />,
       label: 'Issued Requisition',
       to: '/issuedRequisition',
     },
@@ -89,13 +84,13 @@ const Dashboard = () => {
     },
     {
       key: 'products',
-      icon: <FiPackage />,
+      icon: <VerticalAlignBottomOutlined />,
       label: 'Products',
       to: '/allProducts',
     },
     {
       key: 'reports',
-      icon: <LineChartOutlined />,
+      icon: <FileOutlined />,
       label: 'Reports',
       to: '/reports',
     },
