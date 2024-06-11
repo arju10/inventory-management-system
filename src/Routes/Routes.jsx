@@ -33,6 +33,9 @@ import AddNewInventory from '../Pages/Dashboard/AddInventory/AddNewInventory';
 import EditInventory from '../Pages/Dashboard/AddInventory/EditInventory';
 import InventoryBarCode from '../Pages/Dashboard/AddInventory/InventoryBarCode';
 import CurrentStock from '../Pages/Dashboard/CurrentStock/CurrentStock';
+import RequisitionIssue from '../Pages/Dashboard/RequisitionIssue/RequisitionIssue';
+import AllProductKeys from '../Pages/Dashboard/Settings/ProductKey/AllProductKeys';
+import AddProductKey from '../Pages/Dashboard/Settings/ProductKey/AddProductKey';
 
 export const router = createBrowserRouter([
   {

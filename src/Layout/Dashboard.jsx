@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import {
+  DesktopOutlined,
   LineChartOutlined,
   UserOutlined,
   ShoppingCartOutlined,
@@ -9,9 +10,17 @@ import {
   TeamOutlined,
   SettingOutlined,
   LogoutOutlined,
+  VerticalAlignBottomOutlined,
+  FileOutlined,
 } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import {
+  TbReportAnalytics,
+  TbReportSearch,
+  TbReport,
+  TbFileReport,
+} from 'react-icons/tb';
+import { FiPackage } from 'react-icons/fi';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import TopNavbar from '../component/TopNavbar/TopNavbar';
 
 const { Sider, Content, Footer } = Layout;
@@ -24,37 +33,37 @@ const Dashboard = () => {
   const items = [
     {
       key: 'dashboard',
-      icon: <DesktopOutlined />,
+      icon: <HomeOutlined />,
       label: 'Dashboard',
       to: '/',
     },
     {
       key: 'requisition',
-      icon: <ShoppingCartOutlined />,
+      icon: <TbReport />,
       label: 'Requisition',
       to: '/requisition',
     },
     {
       key: 'RequisitionAuthorization',
-      icon: <ShoppingCartOutlined />,
+      icon: <TbReportSearch />,
       label: 'Requisition(Authorize)',
       to: '/RequisitionAuthorization',
     },
     {
       key: 'requisionApp',
-      icon: <ShoppingCartOutlined />,
+      icon: <TbFileReport />,
       label: 'Requisition(Approval)',
       to: '/requisitionApp',
     },
     {
       key: 'requisitionIssue',
-      icon: <ShoppingCartOutlined />,
+      icon: <TbFileReport />,
       label: 'Requisition(issue)',
-      to: '/requisionIssue',
+      to: '/requisitionIssue',
     },
     {
       key: 'issuedRequisition',
-      icon: <ShoppingCartOutlined />,
+      icon: <TbReportAnalytics />,
       label: 'Issued Requisition',
       to: '/issuedRequisition',
     },
@@ -84,13 +93,13 @@ const Dashboard = () => {
     },
     {
       key: 'products',
-      icon: <VerticalAlignBottomOutlined />,
+      icon: <FiPackage />,
       label: 'Products',
       to: '/allProducts',
     },
     {
       key: 'reports',
-      icon: <FileOutlined />,
+      icon: <LineChartOutlined />,
       label: 'Reports',
       to: '/reports',
     },
@@ -120,34 +129,81 @@ const Dashboard = () => {
     },
   ];
 
+  const isActive = (path) => location.pathname === path;
+
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      {/* <TopNavbar /> */}
-      <Layout>
-        <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
-          <div className='demo-logo-vertical' />
-          <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
-            {items.map((item) => (
-              <Menu.Item key={item.key} icon={item.icon}>
-                <Link to={item.to}>{item.label}</Link>
-              </Menu.Item>
-            ))}
-          </Menu>
-        </Sider>
-        <Layout>
-          <TopNavbar />
-          <Content style={{ margin: '0 16px' }}>
-            <div style={{ padding: 24, minHeight: 360 }}>
-              <Outlet />
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            Management Inventory System ©{new Date().getFullYear()} Created by
-            GOINNOVIOR LIMITED
-          </Footer>
-        </Layout>
-      </Layout>
-    </Layout>
+    <div className='flex min-h-screen'>
+      <div
+        className={`flex flex-col bg-gray-800 text-white ${
+          collapsed ? 'w-16' : 'w-64'
+        } transition-width duration-200`}
+      >
+        {/* <div className="flex items-center justify-center p-4">
+      <Link to="/" className="btn btn-ghost normal-case text-xl">
+        GOINNOVIOR
+      </Link>
+    </div> */}
+        <nav className='flex-1 overflow-y-auto'>
+          <ul className='menu p-2'>
+            {items.map((item) =>
+              item.subMenu ? (
+                <li key={item.key} className='my-1'>
+                  <div
+                    className='flex items-center gap-4 cursor-pointer'
+                    onClick={() => setSettingsOpen(!settingsOpen)}
+                  >
+                    <span className='text-lg'>{item.icon}</span>
+                    {!collapsed && <span>{item.label}</span>}
+                  </div>
+                  {settingsOpen && (
+                    <ul className='pl-8'>
+                      {item.subMenu.map((subItem) => (
+                        <li
+                          key={subItem.key}
+                          className={`my-1 ${
+                            isActive(subItem.to) ? 'bg-blue-500 text-white' : ''
+                          }`}
+                        >
+                          <Link
+                            to={subItem.to}
+                            className='flex items-center gap-4'
+                          >
+                            <span className='text-lg'>{subItem.icon}</span>
+                            <span>{subItem.label}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ) : (
+                <li
+                  key={item.key}
+                  className={`my-1 ${
+                    isActive(item.to) ? 'bg-blue-500 text-white' : ''
+                  }`}
+                >
+                  <Link to={item.to} className='flex items-center gap-4'>
+                    <span className='text-lg'>{item.icon}</span>
+                    {!collapsed && <span>{item.label}</span>}
+                  </Link>
+                </li>
+              )
+            )}
+          </ul>
+        </nav>
+      </div>
+      <div className='flex flex-col flex-1'>
+        <TopNavbar collapsed={collapsed} setCollapsed={setCollapsed} />
+        <main className='flex-1 p-6'>
+          <Outlet />
+        </main>
+        <footer className='bg-gray-100 text-center p-4'>
+          Management Inventory System ©{new Date().getFullYear()} Created by
+          GOINNOVIOR LIMITED
+        </footer>
+      </div>
+    </div>
   );
 };
 

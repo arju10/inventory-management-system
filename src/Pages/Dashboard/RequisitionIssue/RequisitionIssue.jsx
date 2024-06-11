@@ -59,7 +59,7 @@ const RequisitionIssue = () => {
         <table className='table border rounded-lg bg-white '>
           {/* head */}
           <thead>
-            <tr className='border bg-cyan-500 text-base text-white font-thin'>
+            <tr className='border bg-custom-dark text-base text-white font-thin'>
               <th>
                 <div className='flex justify-between'>
                   <div>Date</div>
