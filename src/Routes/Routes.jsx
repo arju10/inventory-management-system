@@ -35,6 +35,11 @@ import InventoryBarCode from "../Pages/Dashboard/AddInventory/InventoryBarCode";
 import CurrentStock from "../Pages/Dashboard/CurrentStock/CurrentStock";
 import AllProductKeys from "../Pages/Dashboard/Settings/ProductKey/AllProductKeys";
 import AddProductKey from "../Pages/Dashboard/Settings/ProductKey/AddProductKey";
+import AddNewDesignation from "../Pages/Dashboard/Settings/Designation/AddDesignation";
+import EditDesignation from "../Pages/Dashboard/Settings/Designation/EditDesignation";
+import Department from "../Pages/Dashboard/Settings/Department/Department";
+import AddDepartment from "../Pages/Dashboard/Settings/Department/AddDepartment";
+import EditDepartment from "../Pages/Dashboard/Settings/Department/EditDepartment";
 
 
 export const router = createBrowserRouter([
@@ -168,6 +173,26 @@ export const router = createBrowserRouter([
       {
         path: "edit-productKey/:id",
         element: <EditSingleEmploy />,
+      },
+      {
+        path:"addDesignation",
+        element:<AddNewDesignation/>
+      },
+      {
+        path:"editDasignation",
+        element:<EditDesignation/>
+      },
+      {
+        path:"department",
+        element:<Department/>
+      },
+      {
+        path:"addDepartment",
+        element:<AddDepartment/>
+      },
+      {
+        path:"editDepartment",
+        element:<EditDepartment/>
       },
     ],
   },

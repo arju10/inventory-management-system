@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
 import { toast } from "daisyui";
 import { Link } from "react-router-dom";
 
-function Designation() {
+function Department() {
   const [selectedRowIndex, setSelectedRowIndex] = useState(null);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [products, setProducts] = useState([]);
@@ -184,7 +184,7 @@ function Designation() {
 
   const navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate("/addDesignation");
+    navigate("/addDepartment");
   };
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -237,7 +237,7 @@ function Designation() {
       <div className="flex flex-col justify-btween items-center sm:flex-row sm:justify-between sm:items-center mb-4">
         <div className="flex flex-col justify-btween items-center sm:justify-between sm:items-start">
           <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-custom-dart">
-            Employee Designation
+            Employee Department
           </h2>
         </div>
       </div>
@@ -358,7 +358,7 @@ function Designation() {
                           </div>
                         </button>
                         <div className="flex-none w-5 pl-3">
-                          <Link to={`/editDasignation`}>
+                          <Link to={`/editDepartment`}>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               height="20"
@@ -456,4 +456,4 @@ function Designation() {
   }
 }
 
-export default Designation;
+export default Department;

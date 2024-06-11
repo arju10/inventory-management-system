@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 
-const AddNewDesignation = () => {
+const EditDepartment = () => {
 
     return (
         <><div >
 
-            <Link to={`/designation`}>
+            <Link to={`/department`}>
                 <button className="btn bg-gray-300 text-sm btn-xs">
                     <svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" /></svg>
                     Back
@@ -27,7 +27,7 @@ const AddNewDesignation = () => {
                 <div className="flex gap-5">
                     <label className="form-control w-full max-w-xs">
                         <div className="label">
-                            <span className="label-text">Designation Name<span className="text-red-500">*</span></span>
+                            <span className="label-text">Department Name<span className="text-red-500">*</span></span>
                         </div>
                         <input type="text" placeholder="Department Name" className="input input-bordered w-full max-w-xs" required />
                     </label>
@@ -64,4 +64,4 @@ const AddNewDesignation = () => {
     );
 };
 
-export default AddNewDesignation;
+export default EditDepartment;
