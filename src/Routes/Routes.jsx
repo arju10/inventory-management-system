@@ -43,6 +43,9 @@ import RequisitionIssue from '../Pages/Dashboard/RequisitionIssue/RequisitionIss
 
 //for report page
 import Reports from "../Pages/Report/Reports";
+import ProductIssue from "../Pages/Report/ProductIssue";
+import EmployeeUser from '../Pages/Report/EmployeeUser';
+
 
 export const router = createBrowserRouter([
   {
@@ -188,9 +191,18 @@ export const router = createBrowserRouter([
       },
 
       //Reports page routing
+      
       {
-        path: "reports",
-        element: <Reports />,
+        path: "inventory",
+        element: <Reports/>,
+      },
+      {
+        path: "productIssue",
+        element: <ProductIssue/>,
+      },
+      {
+        path: "employeeUser",
+        element: <EmployeeUser/>,
       }
     ],
   },

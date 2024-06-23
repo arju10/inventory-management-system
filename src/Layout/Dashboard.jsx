@@ -90,7 +90,26 @@ const Dashboard = () => {
           key: "reports",
           icon: <FileOutlined />,
           label: "Reports",
-          to: "/reports",
+          subMenu: [
+            {
+              key: "productIssue",
+              icon: <LogoutOutlined />,
+              label: "ProductIssue",
+              to: "/productIssue",
+            },
+            {
+              key: "inventory",
+              icon: <LogoutOutlined />,
+              label: "Inventory",
+              to: "/inventory",
+            },
+            {
+              key: "employeeUser",
+              icon: <LogoutOutlined />,
+              label: "Employee/User",
+              to: "/employeeUser",
+            }
+          ]
         },
         {
           key: "employee",

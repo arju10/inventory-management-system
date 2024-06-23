@@ -36,7 +36,8 @@ const CurrentStockLevels = () => {
   };
 
   return (
-    <Card className="m-4 p-4 border rounded-lg shadow-lg w-1/2">      <CardContent>
+    <Card className="m-4 p-4 border rounded-lg shadow-lg w-1/2">     
+     <CardContent>
         <Typography variant="h5" component="div" className="flex items-center">
           <StorageIcon className="mr-2" /> Current Stock Levels
         </Typography>
