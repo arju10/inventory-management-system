@@ -129,6 +129,12 @@ const Dashboard = () => {
           label: "Settings",
           subMenu: [
             {
+              key: "department",
+              icon: <LogoutOutlined />,
+              label: "Department",
+              to: "/department",
+            },
+            {
               key: "designation",
               icon: <LogoutOutlined />,
               label: "Designation",

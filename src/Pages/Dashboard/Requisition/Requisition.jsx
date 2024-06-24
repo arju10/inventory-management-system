@@ -1,5 +1,3 @@
-
-import { Pagination } from "antd";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";

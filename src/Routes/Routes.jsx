@@ -35,6 +35,7 @@ import InventoryBarCode from "../Pages/Dashboard/AddInventory/InventoryBarCode";
 import CurrentStock from "../Pages/Dashboard/CurrentStock/CurrentStock";
 import AllProductKeys from "../Pages/Dashboard/Settings/ProductKey/AllProductKeys";
 import AddProductKey from "../Pages/Dashboard/Settings/ProductKey/AddProductKey";
+
 import RequisitionIssue from '../Pages/Dashboard/RequisitionIssue/RequisitionIssue';
 
 
@@ -45,6 +46,13 @@ import RequisitionIssue from '../Pages/Dashboard/RequisitionIssue/RequisitionIss
 import Reports from "../Pages/Report/Reports";
 import ProductIssue from "../Pages/Report/ProductIssue";
 import EmployeeUser from '../Pages/Report/EmployeeUser';
+
+import AddNewDesignation from "../Pages/Dashboard/Settings/Designation/AddDesignation";
+import EditDesignation from "../Pages/Dashboard/Settings/Designation/EditDesignation";
+import Department from "../Pages/Dashboard/Settings/Department/Department";
+import AddDepartment from "../Pages/Dashboard/Settings/Department/AddDepartment";
+import EditDepartment from "../Pages/Dashboard/Settings/Department/EditDepartment";
+
 
 
 export const router = createBrowserRouter([
@@ -203,7 +211,28 @@ export const router = createBrowserRouter([
       {
         path: "employeeUser",
         element: <EmployeeUser/>,
-      }
+      },
+
+      {
+        path:"addDesignation",
+        element:<AddNewDesignation/>
+      },
+      {
+        path:"editDasignation",
+        element:<EditDesignation/>
+      },
+      {
+        path:"department",
+        element:<Department/>
+      },
+      {
+        path:"addDepartment",
+        element:<AddDepartment/>
+      },
+      {
+        path:"editDepartment",
+        element:<EditDepartment/>
+      },
     ],
   },
 ]);
