@@ -52,6 +52,7 @@ import EditDesignation from "../Pages/Dashboard/Settings/Designation/EditDesigna
 import Department from "../Pages/Dashboard/Settings/Department/Department";
 import AddDepartment from "../Pages/Dashboard/Settings/Department/AddDepartment";
 import EditDepartment from "../Pages/Dashboard/Settings/Department/EditDepartment";
+import Preview from '../Pages/Dashboard/Requisition/Preview';
 
 
 
@@ -232,6 +233,10 @@ export const router = createBrowserRouter([
       {
         path:"editDepartment",
         element:<EditDepartment/>
+      },
+      {
+        path:"preview",
+        element:<Preview/>
       },
     ],
   },
