@@ -182,6 +182,9 @@ function Requisition() {
   const handleButtonClick = () => {
     navigate("/requisitionRequest");
   };
+  const handlePreviewButtonClick =()=>{
+    navigate("/preview");
+  }
 
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 5;
@@ -231,7 +234,9 @@ function Requisition() {
             >
               + New Requisition Request
             </button>
-            <button className="bg-gray-50 text-custom-blue hover:bg-gray-100 px-2 sm:px-4 py-1 sm:py-2 rounded m-1">
+            <button 
+            onClick={handlePreviewButtonClick}
+            className="text-custom-blue border border-custom-blue hover:bg-gray-100 px-2 sm:px-4 py-1 sm:py-2 rounded m-1">
               Preview
             </button>
           </div>

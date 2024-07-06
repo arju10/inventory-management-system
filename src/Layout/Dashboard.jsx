@@ -196,6 +196,7 @@ const Dashboard = () => {
       </div>
       <div className="flex flex-col flex-1">
         <TopNavbar collapsed={collapsed} setCollapsed={setCollapsed} />
+        <div className="overflow-y-auto">
         <main className="flex-1 p-6">
           <Outlet />
         </main>
@@ -203,6 +204,7 @@ const Dashboard = () => {
           Management Inventory System ©{new Date().getFullYear()} Created by
           GOINNOVIOR LIMITED
         </footer>
+        </div>
       </div>
     </div>
   );
